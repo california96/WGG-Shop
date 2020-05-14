@@ -40,7 +40,7 @@ public class DownloadExpenseReportServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		User user = (User)session.getAttribute("user");
 		ExpenseOperations exOps = new ExpenseOperations();
-		ArrayList<Expense> expenses = exOps.getAllExpenses(connection, user.getUserID());
+		ArrayList<Expense> expenses = exOps.getExpensesInMonth(connection, user.getUserID());
 		exOps.downloadExpenses(response, expenses, user);
 	/*	try {
 			//step 1: Initialize Document

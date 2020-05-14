@@ -174,6 +174,28 @@ public class ExpenseOperations {
 		}
 		return categoryExpense;
 	}
+	public ArrayList<Expense> getExpensesInMonth(Connection connection, int userID){
+		ArrayList<Expense> expenses = new ArrayList<Expense>();
+		//public Expense(int expenseID, int categoryID, String category, int userID, double cost, Date date, String comment)
+		String sql = "SELECT expenseID, categoryID, categories.name, users.userID, cost, date, comment\n" + 
+				"FROM expenses\n" + 
+				"INNER JOIN users on users.userID = expenses.userID\n" + 
+				"INNER JOIN categories on categories.id = expenses.categoryID\n" + 
+				"WHERE users.userID = ? AND (MONTH(date) = MONTH(CURRENT_TIMESTAMP) AND YEAR(date) = YEAR(CURRENT_TIMESTAMP))";
+		try {
+			PreparedStatement prep = connection.prepareStatement(sql);
+			prep.setInt(1, userID);
+			ResultSet rs = prep.executeQuery();
+			while(rs.next()) {
+				expenses.add(new Expense(rs.getInt("expenseID"), rs.getInt("categoryID"), rs.getString("name"), rs.getInt("userID"), rs.getDouble("cost"), rs.getString("date"), rs.getString("comment")));
+			}
+		}catch(SQLException sqle) {
+			System.err.println(sqle.getMessage());
+		}catch(Exception e) {
+			System.err.println(e.getMessage());
+		}
+		return expenses;
+	}
 	public void downloadExpenses(HttpServletResponse response, ArrayList<Expense> expenses, User user) {
 		try {
 		//step 1: Initialize Document
