@@ -37,6 +37,9 @@ public class UserOperations {
 		}
 		return false;
 	}
+	/*Step 1: Retrieve user row from DB based on username */
+	/*Step 2: Using the value of parameter password, we'll check hash matches using BCrypt.checkpw(String plaintextentry, String hashedpasswordindb)*/
+	/*Step 3: Return true if checkpw is successful*/
 	public boolean authenticate(Connection connection, String username, String password) {
 		String sql = "SELECT username, password FROM users WHERE username = ?";
 		ResultSet rs = null;

@@ -37,8 +37,9 @@
           		<h3 class="card-title">User Profile</h3>
           	</div>
           	<div class = "card-body">
+          		
+          		<form> <!-- Will need a servlet that edits everything but passwords. will do file processing -->
           		<img src = "retrieveimage.action?module=profile&fileName=${sessionScope.user.image }"/>
-          		<form>
           			<div class = "form-group">
           			<label for = "firstname">First Name</label>
           			<input type = "text" name = "firstname" class = "form-control" value = "${sessionScope.user.firstName }">
@@ -55,7 +56,41 @@
           			<label for = "firstname">Email</label>
           			<input type = "email" name = "email" class = "form-control" value = "${sessionScope.user.email }">
           			</div>
+          			
+          			<div class="form-group">
+                  	<button type="submit" class="btn btn-primary">Submit</button>
+                	</div>
           		</form>
+          	</div>
+          </div>
+          
+           
+          <div class = "card">
+          	<div class = "card-header">
+          		<h3 class="card-title">Security Settings</h3>
+          	</div>
+          	<div class = "card-body">
+          		
+          		<form> <!-- This should lead to Password Change Servlet  -->
+          			<div class = "form-group">
+          			<label for = "currentpass">Current Password</label>
+          			<input type = "password" name = "currentpass" class = "form-control" required>
+          			</div>
+          			<div class = "form-group">
+          			<label for = "newpass">New Password</label>
+          			<input type = "password" name = "newpass" class = "form-control" required>
+          			</div>
+          			<div class = "form-group">
+          			<label for = "confirmnew">Confirm New Password</label>
+          			<input type = "password" name = "confirmnew" class = "form-control" required>
+          			</div>
+          			<div class="form-group">
+                  	<button type="submit" class="btn btn-primary">Submit</button>
+                	</div>
+                </form>
+          	</div>
+          			
+          		
           	</div>
           </div>
           
