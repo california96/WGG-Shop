@@ -141,6 +141,7 @@ public class UserOperations {
 		String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 		return RandomStringUtils.random(10, chars);
 	}
+	
 	public boolean checkUser(Connection connection, String username) {
 		try {
 			String sql = "SELECT username from users where username = ?";
