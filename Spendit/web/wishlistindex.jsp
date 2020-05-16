@@ -55,9 +55,16 @@
     			<td><c:out value="${elem.comment }"/></td>
     			<td><c:out value="${elem.date }"/></td>
     			<td><c:out value="${elem.status }"/></td>
+    			<c:if test="${elem.statusID == 4}">
+ 				<td>No further action necessary</td>
+				
+    			
+    			</c:if>
+    			<c:if test = "${elem.statusID != 4 }">
     			<td><a href = "retrievewish.action?id=${elem.id }"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i> Edit</button></a>
     			<a href = "deletewish.action?id=${elem.id }"onclick = 'return confirm("Confirm Deletion")'><button type="button" class="btn btn-block btn-danger">Delete</button></a>
     			</td>
+    			</c:if>
     			</tr>
 				</c:forEach>
            		</tbody>

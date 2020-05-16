@@ -154,7 +154,7 @@ i.icon{
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="accountsettings.jsp" class="nav-link">
                   <i class="fas fa-cog icons"></i>
                   <p class="contents">Account Settings</p>
                 </a>
