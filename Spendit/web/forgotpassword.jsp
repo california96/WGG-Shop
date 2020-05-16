@@ -176,7 +176,7 @@ a.login:hover {
 	<div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
-        <form class="login100-form validate-form" id = "login-form">
+        <form class="login100-form validate-form" id = "forgot-form">
           <span class="login100-form-title p-b-43">
             SPENDIT
           </span>
@@ -216,7 +216,7 @@ a.login:hover {
 <!-- jQuery UI 1.11.4 -->
 <script src="adminlte/plugins/jquery-ui/jquery-ui.min.js"></script>
 <script>
- $("#login-form").submit(function(e){
+ $("#forgot-form").submit(function(e){
 	 e.preventDefault();
 	 
 
@@ -230,7 +230,7 @@ a.login:hover {
 				  window.location.href = "index.jsp";
 			 }else{
 				 $("#errormsg").empty();
-				 $("#errormsg").append("<p style='color:red'>Invalid Credentials.</p>");
+				 $("#errormsg").append("<p style='color:red'>This email is not in our records. Would you like to register?</p>");
 			 }
 		 }
 	 })

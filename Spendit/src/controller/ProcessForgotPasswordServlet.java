@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.HashMap;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 
 import utility.DBConnection;
 import utility.Mailer;
@@ -39,6 +41,9 @@ public class ProcessForgotPasswordServlet extends HttpServlet {
 		UserOperations userOps = new UserOperations();
 		ServletContext context = getServletContext();
 		Connection connection = DBConnection.getConnection(getServletContext());
+		Gson gson = new Gson();
+		HashMap<Object, Object> errorMsg = new HashMap<>();
+		String json;
 		if(userOps.checkEmail(connection, email)) {
 			System.out.println("Yes!");
 			String newPass = userOps.generatePassword();
@@ -48,9 +53,19 @@ public class ProcessForgotPasswordServlet extends HttpServlet {
 			String messageBody = "<h2>Hello!</h2>\n"
 					+ "<p>We have received your request to change your password. Your new password is <b>" + newPass + "</b>\n";
 			mailer.sendEmail(context.getInitParameter("MailerEmail"), context.getInitParameter("MailerPass"), email, "Change Password Request", messageBody);
+			
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			errorMsg.put("msg", "success");
+			json =gson.toJson(errorMsg);
+			response.getWriter().write(json);
 		}
 		else {
-			System.err.println("No!");
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			errorMsg.put("msg", "failure");
+			json =gson.toJson(errorMsg);
+			response.getWriter().write(json);
 		}
 	}
 
