@@ -6,14 +6,14 @@ public class Income {
 	private int categoryID;
 	private String category;
 	private double amount;
-	private Date date;
+	private String date;
 	private String comment;
 	
 	public Income() {
 		
 	}
 	//Insertion constructor
-	public Income(int userID, int categoryID, double amount, Date date, String comment) {
+	public Income(int userID, int categoryID, double amount, String date, String comment) {
 		this.userID = userID;
 		this.categoryID = categoryID;
 		this.amount = amount;
@@ -21,7 +21,7 @@ public class Income {
 		this.comment = comment;
 	}
 	//retrieval constructor
-	public Income(int incomeID, int userID, int categoryID, String category, double amount, Date date, String comment) {
+	public Income(int incomeID, int userID, int categoryID, String category, double amount, String date, String comment) {
 		this.incomeID = incomeID;
 		this.userID = userID;
 		this.categoryID = categoryID;
@@ -48,10 +48,10 @@ public class Income {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getComment() {

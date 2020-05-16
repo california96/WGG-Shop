@@ -15,54 +15,67 @@ body {
 }
 
 .sidenav {
-    height: 1120px;
-    width: 1080px;
-    background-color: #50C878;
-    overflow-x: hidden;
-    padding-top: 20px;
+  background-image: url(resources/images/fruits.png);
+   width: 50%;
+   position: absolute;
+   left: 0px;
+   height: 100%;
 }
 
-
-.main {
-    padding: 0px 10px;
-  
+p.login {
+  font-weight: bold;
+  font-size: 35px;
 }
 
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
+p.error-msg {
+   margin-top: 5px;
+   margin-bottom: -20px;
 }
 
-@media screen and (max-width: 450px) {
-    .login-form{
-        margin-top: 10%;
-    }
-
-    .register-form{
-        margin-top: 10%;
-    }
+p.description {
+  font-size: 16px;
+  text-align: center;
+  color: #646464;
+}
+p.forgotpass {
+  font-size: 16px;
+  text-align: center;
 }
 
-@media screen and (min-width: 768px){
-    .main{
-        margin-left: 60%; 
-    }
-
-    .sidenav{
-        width: 55%;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-    }
-
-    .login-form{
-        margin-top: 80%;
-    }
-
-    .register-form{
-        margin-top: 20%;
-    }
+a.description {
+  font-size: 16px;
+  text-align: center;
+  color: #73C2FB;
 }
+
+a.description:hover {
+  text-decoration: underline;
+  color: #73C2FB;
+}
+
+a.register {
+  font-size: 16px;
+  text-align: center;
+  color: #73C2FB;
+  padding-right: 10px;
+}
+
+a.register:hover {
+  text-decoration: underline;
+  color: #73C2FB;
+}
+h3.login {
+  font-weight: bold;
+  font-size: 35px;
+}
+
+h3.title {
+  font-weight: bold;
+  font-size: 35px;
+  color: #73C2FB;
+  text-align: center;
+}
+
 
 
 .login-main-text{
@@ -78,46 +91,87 @@ body {
 .btn-black{
     background-color: #73C2FB !important;
     color: #fff !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 115px;
 }
-.btn-log{
-  background-color: #73C2FB !important;
-    color: #fff;
+.btn-outline{
+  background-color: #FFFF !important;
+    color: #73C2FB!important;
+    border-color: #73C2FB!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 115px;
+    /***margin-top: -97px;
+    margin-left: 130px;**//
+}
+.buttonrow{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
+    justify-content: center;
+    padding-bottom: 10px;
+    align-content: center;
 }
 </style>
 <%@include file = "header.jsp" %>
 <body>
 
-	<div class="sidenav">
-         <div class="login-main-text">
-            <h2>Application<br> Login Page</h2>
-            <p>Login or register from here to access.</p>
-         </div>
-      </div>
-      <div class="main">
-         <div class="col-md-6 col-sm-12">
-            <div class="login-form">
-               <form action = "login.action" method = "post" id = "login-form">
-                  <div class="form-group">
-                     <label>Username</label>
-                     <input id = "username" type="text" class="form-control" placeholder="User Name" name = "username" required>
-                  	<p id = "errormsg"></p>
-                  </div>
-                  <div class="form-group">
-                     <label>Password</label>
-                     <input id = "password" type="password" class="form-control" placeholder="Password" name = "password" required>
-                  </div>
-                  <a href = "forgotpassword.jsp">Forgot password</a>
-                  <p id = "errormsg"></p>
-                  <button type="submit" class="btn btn-black">Login</button>
-                 
-                
-               </form>
-               	<div class = "form-group">
-                <a href = "register.jsp"><button class="btn btn-secondary">Register</button></a>
-                </div>
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <form class="login100-form validate-form" id = "login-form">
+          <span class="login100-form-title p-b-43">
+            SPENDIT
+          </span>
+          
+          
+          <div class="wrap-input100">
+            <label>Username</label>
+           <input id = "username" type="text" class="form-control" placeholder="User Name" name = "username" required>
+            <p id = "errormsg" class="error-msg"></p>
+          </div>
+          
+          
+          <div class="wrap-input100 validate-input" data-validate="Password is required">
+            <label>Password</label>
+              <input id = "password" type="password" class="form-control" placeholder="Password" name = "password" required>
+          </div>
+
+          <div class="flex-sb-m w-full p-t-3 p-b-32">
+            <div class="custom-container">
+              <a href = "forgotpassword.jsp" class="forgotpass">Forgot password</a>
             </div>
-         </div>
+          </div>
+      
+
+          <div class="container-login100-form-btn">
+            <button class="btn login100-form-btn">
+              Login
+            </button>
+          </div>
+          
+          <div class="text-center p-t-46 p-b-20">
+            <span class="txt2">
+               <a href = "register.jsp" class="register">Create an Account</a>
+               <p id = "errormsg"></p>
+            </span>
+          </div>
+        </form>
+
+        <div class="login100-more" style="background-image: url(resources/images/fruits.png);">
+          <div class="login-main-text">
+          <h3 class="login">Always Hungry?</h3>
+            <p class="login">No worries! SpendIt will keep track of your food spending habits.</p>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
 <!-- jQuery -->
 <script src="adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

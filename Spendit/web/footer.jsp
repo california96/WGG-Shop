@@ -251,11 +251,70 @@ $(document).ready(function() {
        success: function(data) {
   
            $("#monthly-income").append('<h3>Php ' + data['monthlyincome'] + '</h3>');
-           $("#monthly-income").append('<p>Income this month/p>');
+           $("#monthly-income").append('<p>Income this month</p>');
 
 			
           
         }
+	});
+	
+	$.ajax({
+		 url : "gettopcategories.action",
+      type:'GET',
+      dataType: 'json',
+      success: function(data) {
+    	  $ulSub = $("#top-categories");
+         $.each(data, function(i, item){
+        	 $ulSub.append('<li class ="item"><div class="product-img"><img src ="retrieveimage.action?module=category&fileName=' +item.image+ '" class = "img-size50"></div><div class = "product-info"><a href = "#" class = "activities">' + item.name + '</a><a class = "product-price" href = "#"><span class = "float-right">Php ' + item.categoryexpense + '</span></a></div>');
+        /* 	 $ulSub.append('<li class="item">');
+        	 $ulSub.append('<div class = "product-img"');
+        	 $ulSub.append('<img src = "retrieveimage.action?module=category&fileName="' + item.image + 'class = "img-size-50"');
+        	 
+        	 $ulSub.append() */
+         });
+		
+			
+         
+       }
+	});
+	
+			
+        
+	$.ajax({
+		 url : "recentexpenses.action",
+    type:'GET',
+    dataType: 'json',
+    success: function(data) {
+  
+       $.each(data, function(i, item){
+  //    	 $ulSub.append('<li class ="item"><div class="product-img"><img src ="retrieveimage.action?module=category&fileName=' +item.image+ '" class = "img-size50"></div><div class = "product-info"><a href = "#" class = "activities">' + item.name + '</a><a class = "product-price" href = "#"><span class = "float-right">Php ' + item.categoryexpense + '</span></a></div>');
+      /* 	 $ulSub.append('<li class="item">');
+      	 $ulSub.append('<div class = "product-img"');
+      	 $ulSub.append('<img src = "retrieveimage.action?module=category&fileName="' + item.image + 'class = "img-size-50"');
+      	 
+      	 $ulSub.append() */
+      	 //<h3 class="timeline-header"><a href="#" class="activities">John Doe</a> had a <a href="#"class="activities">Starbucks Coffee</a> worth<a href="#" class="activities"> ₱180.00</a></h3>
+
+      	 $('#transaction-history').append('<div><i class = "fas"><img src ="retrieveimage.action?module=category&fileName=' +item.image+ '" style="margin-left: -5px;"></i><div class = "timeline-item"><h3 class = "timeline-header><a href = "#" class = "activities">' + item.firstname + ' ' + item.lastname + ' had a <a href= "#" class = "activities">' + item.comment + '</a> worth <a href = "#" class = "activities"> Php ' + item.cost + '</a></h3><div class = "timeline-body"><span title = "'+item.date+'"><i class = "fas fa-clock" style = "color: #999;"></i>'  + moment("'"+item.date+"'").endOf('minutes').fromNow() + '</span></div></div></div>');
+      	
+       });
+		
+			
+       
+     }
+	});
+	$.ajax({
+		 url : "retrievetotalwish.action",
+      type:'GET',
+      dataType: 'json',
+      success: function(data) {
+ 
+          $("#wishlist-total").append('<h3>Php ' + data['wishtotal'] + '</h3>');
+          $("#wishlist-total").append('<p>Wishlist Budget</p>');
+
+			
+         
+       }
 	});
 	 });
 </script> 

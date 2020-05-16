@@ -7,6 +7,61 @@
         response.sendRedirect("login.jsp");
      }
   %>
+<style>
+  p.contents {
+  color:#FFFFFF;
+}
+
+p.error-msg {
+   margin-top: 5px;
+   margin-bottom: -20px;
+}
+i.icons{
+  color:#FFFDD0;
+}
+
+aside.color{
+  background-color: #4AD991;
+}
+
+a.contents{
+   color:#FFFFFF;
+}
+
+img.avatar {
+  /***vertical-align: middle;
+  width: 50px;
+  height: 50px;**/
+  border-radius: 50%;
+}
+
+img.avatar-icon {
+  /***vertical-align: middle;
+  width: 50px;
+  height: 50px;**/
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+a.hover{
+  background-color: #3BA960;
+}
+a.color{
+  border-bottom: 1px solid #4b545c00;
+    color: rgba(255,255,255,.8);
+}
+a.activities{
+  color:black;
+}
+a.product-price{
+  color:#FF6B7F;
+  font-weight: bold;
+}
+i.icon{
+  background-image: url(resources/images/coffee-category.png);
+}
+
+</style>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class = "wrapper">
   <!-- Navbar -->
@@ -19,52 +74,47 @@
      
     </ul>
     
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <!-- <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div> -->
-      </div>
-    </form>
 	
     <!-- Right navbar links -->
 <ul class="navbar-nav ml-auto">
-     
-      
-      <li class="nav-item">
-       	<form action = "signout.action" method = "post">
-		<button type="submit" class="btn btn-default float-right">Sign Out</button>       	
-		</form>
-        
+
+      <li class="nav-item dropdown user-menu">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+         <img src = "retrieveimage.action?module=profile&fileName=${sessionScope.user.image }" class="img-circle elevation-2 avatar-icon" alt="User Image"/>
+          <span class="d-none d-md-inline">${sessionScope.user.firstName} ${sessionScope.user.lastName }</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <!-- User image -->
+          <li class="user-header bg-primary">
+            <img src = "retrieveimage.action?module=profile&fileName=${sessionScope.user.image }" class="img-circle elevation-2 avatar" alt="User Image"/>
+
+            <p>
+              ${sessionScope.user.firstName} ${sessionScope.user.lastName }
+              <small>Member since Nov. 2012</small>
+            </p>
+          </li>
+          <!-- Menu Footer-->
+          <li class="user-footer">
+              <form action = "signout.action" method = "post" style="padding-right: 90px;">
+                 <button type="submit" class="btn btn-default float-right">Sign Out</button>         
+              </form>
+          </li>
+        </ul>
       </li>
     </ul>
   </nav>
   <!-- /.navbar -->
   
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-lime elevation-4">
+  <aside class="main-sidebar sidebar-dark-lime elevation-4 color">
     <!-- Brand Logo -->
-    <a href="index.jsp" class="brand-link">
-      <img src="adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="index.jsp" class="brand-link ">
+      <img src="resources/images/official-logo.png" alt="SpendIt Logo" style="margin-left: -10px;">
+      <!---<span class="brand-text font-weight-light" style="color:white;">AdminLTE 3</span> --->
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      
-        <div class="info">
-   		<img src = "retrieveimage.action?module=profile&fileName=${sessionScope.user.image }"/>
-          <a href="#" class="d-block">${sessionScope.user.firstName} ${sessionScope.user.lastName }</a>
-        </div>
-      </div>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -75,38 +125,38 @@
         
               <li class="nav-item">
                 <a href="index.jsp" class="nav-link">
-                  <i class="fas fa-chart-bar"></i>
-                  <p>Dashboard</p>
+                  <i class="fas fa-chart-bar icons"></i>
+                  <p class="contents">Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="retrieveexpenses.action" class="nav-link">
-                  <i class="fas fa-calculator"></i>
-                  <p>Expenses</p>
+                  <i class="fas fa-calculator icons"></i>
+                  <p class="contents">Expenses</p>
                 </a>
               </li>
               <li class = "nav-item">
               	<a href = "retrieveallincome.action" class = "nav-link">
-              		<i class="fas fa-dollar-sign"></i>
-              		<p>Income</p>
+              		<i class="fas fa-dollar-sign icons"></i>
+              		<p class="contents">Income</p>
               	</a>
               </li>
               <li class="nav-item">
                 <a href="retrievewishlist.action" class="nav-link">
-					<i class="fas fa-clipboard-list"></i>                  
-					<p>My Wishlist</p>
+					<i class="fas fa-clipboard-list icons"></i>                  
+					<p class="contents">My Wishlist</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="categoryindex.action" class="nav-link">
-                  <i class="fas fa-list"></i>
-                  <p>Categories</p>
+                  <i class="fas fa-list icons"></i>
+                  <p class="contents">Categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="accountsettings.jsp" class="nav-link">
-                  <i class="fas fa-cog"></i>
-                  <p>Account Settings</p>
+                <a href="#" class="nav-link">
+                  <i class="fas fa-cog icons"></i>
+                  <p class="contents">Account Settings</p>
                 </a>
               </li>
             

@@ -38,8 +38,13 @@
           	</div>
           	<div class = "card-body">
           		
-          		<form> <!-- Will need a servlet that edits everything but passwords. will do file processing -->
+          		<form action = "updateaccount.action" method = "post" id = "signup-form" enctype = "multipart/form-data" autocomplete = "off"> <!-- Will need a servlet that edits everything but passwords. will do file processing -->
           		<img src = "retrieveimage.action?module=profile&fileName=${sessionScope.user.image }"/>
+          		
+          		<div class = "form-group">
+          			<label for = "file">Upload a New Profile Picture</label>
+                  	<input type = "file" name = "file">
+                  </div>
           			<div class = "form-group">
           			<label for = "firstname">First Name</label>
           			<input type = "text" name = "firstname" class = "form-control" value = "${sessionScope.user.firstName }">
@@ -71,7 +76,7 @@
           	</div>
           	<div class = "card-body">
           		
-          		<form> <!-- This should lead to Password Change Servlet  -->
+          		<form action = "updatepassword.action" method = "post"> <!-- This should lead to Password Change Servlet  -->
           			<div class = "form-group">
           			<label for = "currentpass">Current Password</label>
           			<input type = "password" name = "currentpass" class = "form-control" required>

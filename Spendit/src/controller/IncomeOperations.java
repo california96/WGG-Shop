@@ -3,9 +3,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletResponse;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import model.Expense;
 import model.Income;
+import model.User;
 public class IncomeOperations {
 	public boolean insert(Connection connection, int userID, int categoryID, double amount, String date, String comment) {
 		String sql = "INSERT INTO incomes(userID, categoryID, amount, date, comment) VALUES (?, ?,?, ?, ?)";
@@ -36,7 +47,7 @@ public class IncomeOperations {
 			prep.setInt(1, userID);
 			ResultSet rs = prep.executeQuery();
 			while(rs.next()) {
-				incomes.add(new Income(rs.getInt("incomeID"), rs.getInt("userID"), rs.getInt("categoryID"), rs.getString("name"), rs.getDouble("amount"), rs.getDate("date"), rs.getString("comment")));
+				incomes.add(new Income(rs.getInt("incomeID"), rs.getInt("userID"), rs.getInt("categoryID"), rs.getString("name"), rs.getDouble("amount"), rs.getString("date"), rs.getString("comment")));
 			}
 		}catch(SQLException sqle) {
 			System.err.println(sqle.getMessage());
@@ -56,7 +67,7 @@ public class IncomeOperations {
 			prep.setInt(1, incomeID);
 			ResultSet rs = prep.executeQuery();
 			while(rs.next()) {
-				income = new Income(rs.getInt("incomeID"), rs.getInt("userID"), rs.getInt("categoryID"), rs.getString("name"), rs.getDouble("amount"), rs.getDate("date"), rs.getString("comment"));
+				income = new Income(rs.getInt("incomeID"), rs.getInt("userID"), rs.getInt("categoryID"), rs.getString("name"), rs.getDouble("amount"), rs.getString("date"), rs.getString("comment"));
 			}
 		}catch(SQLException sqle) {
 			System.err.println(sqle.getMessage());
@@ -110,5 +121,69 @@ public class IncomeOperations {
 			System.err.println(sqle.getMessage());
 		}
 		return monthlyIncome;
+	}
+	public ArrayList<Income> getAllMonthsIncome(Connection connection, int userID){
+		ArrayList<Income> income = new ArrayList<Income>();
+	
+	
+		String sql = "SELECT incomeID, userID, incomes.categoryID, categories.name, amount, date, comment\n" + 
+				"				FROM incomes\n" + 
+				"				INNER JOIN categories on categories.id = incomes.categoryID\n" + 
+				"				WHERE incomes.userID = ? AND (MONTH(date) = MONTH(CURRENT_TIMESTAMP) AND YEAR(date) = YEAR(CURRENT_TIMESTAMP))";
+		try {
+			PreparedStatement prep = connection.prepareStatement(sql);
+			prep.setInt(1, userID);
+			ResultSet rs = prep.executeQuery();
+			while(rs.next()) {
+				//expenses.add(new Expense(rs.getInt("expenseID"), rs.getInt("categoryID"), rs.getString("name"), rs.getInt("userID"), rs.getDouble("cost"), rs.getString("date"), rs.getString("comment")));
+				income.add(new Income(rs.getInt("incomeID"), rs.getInt("userID"), rs.getInt("categoryID"), rs.getString("name"), rs.getDouble("amount"), rs.getString("date"), rs.getString("comment")));
+			}
+		}catch(SQLException sqle) {
+			System.err.println(sqle.getMessage());
+		}catch(Exception e) {
+			System.err.println(e.getMessage());
+		}
+		return income;
+	}
+	public void downloadIncome(HttpServletResponse response, ArrayList<Income> income, User user) {
+		try {
+		//step 1: Initialize Document
+		Document document = new Document();
+		//step 2: Get Instance
+		PdfWriter.getInstance(document, response.getOutputStream());
+		//step 3: Open Document
+		document.open();
+		//Step 4: Retrieve Expenses Breakdown
+		
+		//Step 5: Initialize Title 
+		document.add(new Paragraph("Income Report of user: " + user.getUserName()));
+		document.add(new Paragraph("As of: " + new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new java.util.Date().getTime())));
+		//Step 6: Initialize Table and Headers
+		PdfPTable table = new PdfPTable(4);
+		PdfPCell cell1 = new PdfPCell(new Paragraph("Category"));
+        PdfPCell cell2 = new PdfPCell(new Paragraph("Comment"));
+        PdfPCell cell3 = new PdfPCell(new Paragraph("Amount"));
+        PdfPCell cell4 = new PdfPCell(new Paragraph("Date Added"));
+        table.addCell(cell1);
+        table.addCell(cell2);
+        table.addCell(cell3);
+        table.addCell(cell4);
+        //Step 7: Loop through expenses
+        for(Income i : income) {
+        	PdfPCell category = new PdfPCell(new Paragraph(i.getCategory()));
+        	PdfPCell comment = new PdfPCell(new Paragraph(i.getComment()));
+        	PdfPCell cost = new PdfPCell(new Paragraph("Php " + i.getAmount()));
+        	PdfPCell date = new PdfPCell(new Paragraph(i.getDate()));
+        	table.addCell(category);
+        	table.addCell(comment);
+        	table.addCell(cost);
+        	table.addCell(date);
+        }
+        document.add(table);
+        document.close();
+       
+		}catch(Exception e) {
+		System.err.println(e.getMessage());
+		}
 	}
 }

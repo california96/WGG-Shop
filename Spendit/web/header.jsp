@@ -27,8 +27,11 @@
   <link rel="stylesheet" href="adminlte/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bangers" />
   <!-- dropdowns -->
   <link href="dropdownresouces/dd.css" rel = "stylesheet">
+  <link rel="stylesheet" type="text/css" href="resources/css/login.css">
 
 
 

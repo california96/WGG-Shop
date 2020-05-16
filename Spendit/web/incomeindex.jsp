@@ -35,6 +35,7 @@
             <div class="card-body">
               <div class = "col-sm-3">
              <a href = "newincome.jsp"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i>New Income</button></a>
+            <a href = "downloadincome.action"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i>Download Income</button></a>	
             	</div>
               <table id="expenses" class="table table-bordered table-hover">
                 <thead>

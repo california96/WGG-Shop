@@ -103,4 +103,21 @@ public class WishlistOperations {
 		}
 		return wish;
 	}
+	public double getWishTotal(Connection connection, int userID) {
+		double wishTotal = 0.0;
+		String sql = "SELECT SUM(amount) as 'totalwish'\n" + 
+				"FROM wishlist\n" + 
+				"WHERE userID = ? and statusID != 4";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, userID);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				wishTotal = rs.getDouble("totalwish");
+			}
+		}catch(SQLException sqle) {
+			System.err.println(sqle.getMessage());
+		}
+		return wishTotal;
+	}
 }

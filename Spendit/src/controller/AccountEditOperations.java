@@ -9,15 +9,16 @@ import utility.BCrypt;
 
 public class AccountEditOperations {
 	
-	public void editAccount(Connection connection, String firstName, String lastName, String username, String email, int userID) {
-		String sql = "UPDATE users SET firstname = ? , lastname = ?, username = ?, email = ? WHERE users.userID = ?";
+	public void editAccount(Connection connection, String firstName, String lastName, String username, String email, String image, int userID) {
+		String sql = "UPDATE users SET firstname = ? , lastname = ?, username = ?, email = ?, image = ? WHERE users.userID = ?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, firstName);
 			ps.setString(2, lastName);
 			ps.setString(3, username);
 			ps.setString(4, email);
-			ps.setInt(5, userID);
+			ps.setString(5, image);
+			ps.setInt(6, userID);
 			ps.executeUpdate();
 			
 		}catch(SQLException sqle) {
@@ -32,7 +33,7 @@ public class AccountEditOperations {
 		if(authenticate(connection, username, oldPassword)) {
 			try {
 				PreparedStatement ps = connection.prepareStatement(sql);
-				ps.setString(1, newPassword);
+				ps.setString(1, BCrypt.hashpw(newPassword, BCrypt.gensalt()));
 				ps.setString(2, username);
 				ps.executeUpdate();
 				

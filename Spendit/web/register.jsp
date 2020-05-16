@@ -6,7 +6,17 @@ body {
     /*font-family: "Lato", sans-serif;*/
 }
 
+a.login {
+  font-size: 16px;
+  text-align: center;
+  color: #73C2FB;
+  padding-right: 10px;
+}
 
+a.login:hover {
+  text-decoration: underline;
+  color: #73C2FB;
+}
 
 .main-head{
     height: 150px;
@@ -106,56 +116,81 @@ function check() {
 	}
 
 </script>
-	<div class="sidenav">
-         <div class="login-main-text">
-            <h2>Application<br> Login Page</h2>
-            <p>Login or register from here to access.</p>
-         </div>
-      </div>
-      <div class="main">
-         <div class="col-md-6 col-sm-12">
-            <div class="login-form">
-               <form action = "signup.action" method = "post" id = "signup-form" enctype = "multipart/form-data" autocomplete = "off">
-                  <div class="form-group">
-                     <label>First Name</label>
-                     <input id = "firstname" onkeydown="checkEntry(event);" onkeyup="checkEntry(event);" type="text" class="form-control" placeholder="First Name" name = "firstname" onPaste = "return false" required>
-                  </div>
-                  <div class="form-group">
-                     <label>Last Name</label>
-                     <input id = "lastname" onkeydown="checkEntry(event);" onkeyup="checkEntry(event);" type="text" class="form-control" placeholder="Last Name" name = "lastname" onPaste = "return false" required>
-                  </div>
-                  <div class="form-group">
-                     <label>Username</label>
+	<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <form class="registration100-form validate-form" action = "signup.action" method = "post" id = "signup-form" enctype = "multipart/form-data" autocomplete = "off">
+          <span class="login100-form-title p-b-43">
+            SPENDIT
+          </span>
+          
+          
+          <div class="wrap-input100">
+            <label>Firstname</label>
+          <input id = "firstname" onkeydown="checkEntry(event);" onkeyup="checkEntry(event);" type="text" class="form-control" placeholder="First Name" name = "firstname" onPaste = "return false" required>
+            <p id = "errormsg" class="error-msg"></p>
+          </div>
+
+          <div class="wrap-input100">
+            <label>Last Name</label>
+                  <input id = "lastname" onkeydown="checkEntry(event);" onkeyup="checkEntry(event);" type="text" class="form-control" placeholder="Last Name" name = "lastname" onPaste = "return false" required>
+            <p id = "errormsg" class="error-msg"></p>
+          </div>
+          <div class="wrap-input100">
+           <label>Username</label>
                       <%if (request.getParameter("error") != null && Integer.parseInt(request.getParameter("error")) == 1 ){%>
                      <p style= "color:red">Username already in our records!</p>
                      <% } %>
                      <input id = "username" type="text" class="form-control" placeholder="Username" name = "username" required>
-                  </div>
-                   <div class="form-group">
-                     <label>Email</label>
-                     <input id = "email" type="email" class="form-control" placeholder="Email" name = "email" required>
-                  </div>
-                   <div class="form-group">
-                     <label>Password</label>
-                     <input id = "password" autocomplete = "off" type ="password" class="form-control" placeholder="Password" name = "password" onkeyup='check();' required>
-                 	
-                  </div>
-                   <div class="form-group">
-                     <label>Confirm Password</label>
-                     <input id = "confirm" autocomplete = "off" type="password" class="form-control" placeholder="Confirm Password" name = "confirm" onkeyup='check();' required>
-                     <span id = "message"></span>
-                  </div>
-                  <div class = "form-group">
-                  	<input type = "file" name = "file">
-                  </div>
-<!--                   <p id = "errormsg"></p>
- -->                  <button type="submit" class="btn btn-secondary">Register</button>
-                
-               </form>
-               <a href = "login.jsp">Already have an account? Sign in</a>
-            </div>
-         </div>
+          </div>
+
+          <div class="wrap-input100">
+            <label>Email</label>
+                <input id = "email" type="email" class="form-control" placeholder="Email" name = "email" required>
+            <p id = "errormsg" class="error-msg"></p>
+          </div>
+          
+          
+          <div class="wrap-input100 validate-input" data-validate="Password is required">
+            <label>Password</label>
+              <input id = "password" type="password" class="form-control" placeholder="Password" name = "password" required>
+          </div>
+
+          <div class="wrap-input100 validate-input" data-validate="Password is required">
+              <label>Confirm Password</label>
+              <input id = "confirm" autocomplete = "off" type="password" class="form-control" placeholder="Confirm Password" name = "confirm" onkeyup='check();' required>
+              <span id = "message"></span>
+          </div>
+
+          <div class="wrap-input100 validate-input">
+              <label>Image</label>
+              <input type = "file" name = "file" class="control-image">
+          </div>
+      
+
+          <div class="container-login100-form-btn">
+            <button class="btn login100-form-btn">
+              Sign Up
+            </button>
+          </div>
+          
+          <div class="text-center p-t-46 p-b-20">
+            <span class="txt2">
+                <a href = "login.jsp" class="login">Already have an account? Sign in</a>
+               <p id = "errormsg"></p>
+            </span>
+          </div>
+        </form>
+
+        <div class="login100-more" style="background-image: url(resources/images/register-write.jpg);">
+          <div class="login-main-text">
+          <h3 class="login">Register Now!</h3>
+            <p class="login">LOL</p>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
 <!-- jQuery -->
 <!-- <script src="adminlte/plugins/jquery/jquery.min.js">
  

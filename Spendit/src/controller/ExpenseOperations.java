@@ -237,5 +237,38 @@ public class ExpenseOperations {
 		System.err.println(e.getMessage());
 		}
 	}
-	
+	public ArrayList<Map<String, String>> getRecentExpenses(Connection connection, int userID){
+		ArrayList<Map<String, String>> expenses = new ArrayList<Map<String, String>>();
+		//public Expense(int expenseID, int categoryID, String category, int userID, double cost, Date date, String comment)
+		String sql = "SELECT expenseID, categoryID, categories.name, categories.image, users.firstName, users.lastName, users.userID, cost, date, comment\n" + 
+				"FROM expenses\n" + 
+				"INNER JOIN users on users.userID = expenses.userID\n" + 
+				"INNER JOIN categories on categories.id = expenses.categoryID\n" + 
+				"WHERE users.userID = ? AND (DATE(date) =  DATE(CURRENT_TIMESTAMP))\n" + 
+				"LIMIT 6";
+		try {
+			PreparedStatement prep = connection.prepareStatement(sql);
+			prep.setInt(1, userID);
+			ResultSet rs = prep.executeQuery();
+			while(rs.next()) {
+				//expenses.add(new Expense(rs.getInt("expenseID"), rs.getInt("categoryID"), rs.getString("name"), rs.getInt("userID"), rs.getDouble("cost"), rs.getString("date"), rs.getString("comment")));
+				//expense.add();
+				Map<String, String> reMap = new HashMap<String, String>();
+				reMap.put("image", rs.getString("image"));
+				reMap.put("name", rs.getString("name"));
+				reMap.put("firstname", rs.getString("firstName"));
+				reMap.put("lastname", rs.getString("lastName"));
+				reMap.put("cost", String.valueOf(rs.getString("cost")));
+				reMap.put("date", rs.getString("date"));
+				reMap.put("comment", rs.getString("comment"));
+				expenses.add(reMap);
+
+			}
+		}catch(SQLException sqle) {
+			System.err.println(sqle.getMessage());
+		}catch(Exception e) {
+			System.err.println(e.getMessage());
+		}
+		return expenses;
+	}
 }
