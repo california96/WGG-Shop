@@ -222,7 +222,7 @@ a.login:hover {
 
 	 $.ajax({
 		 type: "POST",
-		 url: "login.action",
+		 url: "processpassword.action",
 		 data: $(this).serialize(),
 		 success: function(data){
 			// alert(JSON.stringify(data.msg));
