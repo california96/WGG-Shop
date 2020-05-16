@@ -189,12 +189,28 @@ a.login:hover {
           </div>
       
 
-          <div class="container-login100-form-btn-forgotpass">
-            <button class="btn login100-form-btn">
-              Send Request
-            </button>
+          <div class="container-login100-form-btn-forgotpass">  
+            <button type="submit" class="btn login100-form-btn" data-toggle="modal" data-target="#modal-default">
+                    Send Request
+          </button>
           </div>
-          
+       <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="align-self: center;">
+               <img src="resources/images/success.png" alt="SpendIt Logo" class="brand-image" style="max-height: auto;width: auto;margin-left: -1px;">
+            </div>
+            <div class="modal-body"style="text-align-last: center;">
+              <p>Your password has been successfully reset. Please check your email for further instructions.&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-between"style="align-self: center;">
+              <a href = "login.jsp" class="login" style="text-decoration: underline;">Go back to login</a>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
           <div class="text-center p-t-46 p-b-20">
             <span class="txt2">
                <a href = "login.jsp" class="login">Go back to login?</a>
@@ -226,8 +242,15 @@ a.login:hover {
 		 data: $(this).serialize(),
 		 success: function(data){
 			// alert(JSON.stringify(data.msg));
+			$("#errormsg").empty();
 			 if(data.msg === "success"){
-				  window.location.href = "index.jsp";
+				 // window.location.href = "index.jsp";
+				 //$('#modal-default').dialog('open');
+				// $("#modal-default").show();
+				 
+				// $('#modal-default').modal();
+				// $('.modal').modal('show');
+				window.location.href = "index.jsp";
 			 }else{
 				 $("#errormsg").empty();
 				 $("#errormsg").append("<p style='color:red'>This email is not in our records. Would you like to register?</p>");

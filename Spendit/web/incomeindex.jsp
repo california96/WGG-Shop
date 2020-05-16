@@ -3,6 +3,24 @@
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <%@include file = "navbar.jsp"%>
+<style>
+  .btn-new{
+    background-color: #4AD991;
+    color: white;
+  }
+  .btn-generate{
+    background-color: #DAA2EB;
+    color: white;
+  }
+  .btn-edit{
+    background-color: #73C2FB;
+    color: white;
+  }
+  .btn-delete{
+    background-color: #FF6B7F;
+    color: white;
+  }
+  </style>
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -33,10 +51,10 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <div class = "col-sm-3">
-             <a href = "newincome.jsp"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i>New Income</button></a>
-            <a href = "downloadincome.action"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i>Download Income</button></a>	
-            	</div>
+              <div class="row">
+             <a href = "newincome.jsp"style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new" style="width:auto;height: auto;"><i class="fas fa-plus"></i>New Expense</button></a>
+             <a href = "downloadincome.action"><button type="button" class="btn btn-block btn-generate" style="width:auto;height:auto;"><i class="fas fa-pen"></i>Generate Report</button></a>
+           </div>
               <table id="expenses" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -54,8 +72,8 @@
     			<td><c:out value="${elem.amount }"/></td>
     			<td><c:out value="${elem.comment }"/></td>
     			<td><c:out value="${elem.date }"/></td>
-    			<td><a href = "retrieveincome.action?id=${elem.incomeID }"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i> Edit</button></a>
-    			<a href = "deleteincome.action?id=${elem.incomeID }" onclick = 'return confirm("Confirm Deletion")'><button type="button" class="btn btn-block btn-danger">Delete</button></a>
+    			<td><a href = "retrieveincome.action?id=${elem.incomeID }"><button type="button" class="btn btn-block btn-edit"><i class="fas fa-pen"></i> Edit</button></a>
+    			<a href = "deleteincome.action?id=${elem.incomeID }" onclick = 'return confirm("Confirm Deletion")'><button type="button" class="btn btn-block btn-delete">Delete</button></a>
     			</td>
     			</tr>
 				</c:forEach>

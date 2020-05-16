@@ -3,6 +3,25 @@
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <%@include file = "navbar.jsp"%>
+<%@include file = "header.jsp"%>
+<style>
+  .btn-new{
+    background-color: #4AD991;
+    color: white;
+  }
+  .btn-generate{
+    background-color: #DAA2EB;
+    color: white;
+  }
+  .btn-edit{
+    background-color: #73C2FB;
+    color: white;
+  }
+  .btn-delete{
+    background-color: #FF6B7F;
+    color: white;
+  }
+  </style>
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -33,11 +52,11 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <div class = "col-sm-3">
-             <a href = "newexpense.jsp"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i>New Expense</button></a>
-            <a href = "downloadexpenses.action"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i>Download Expenses</button></a>
-            	</div>
-              <table id="expenses" class="table table-bordered table-hover">
+              <div class="row">
+             <a href = "newexpense.jsp"style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new" style="width:auto;height: auto;"><i class="fas fa-plus"></i>New Expense</button></a>
+             <a href = "#"><button type="button" class="btn btn-block btn-generate" style="width:auto;height:auto;"><i class="fas fa-pen"></i>Generate Report</button></a>
+           </div>
+             <table id="expenses" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>Category</th>
@@ -46,24 +65,36 @@
                   <th>Date Added</th>
                   <th>Action</th>
                 </tr>
-           		<tbody>
-           		<c:forEach items="${expenses}" var="elem">
-           		<tr>
-           		
-    			<td><c:out value="${elem.category}" /></td>
-    			<td><c:out value="${elem.cost }"/></td>
-    			<td><c:out value="${elem.comment }"/></td>
-    			<td><c:out value="${elem.date }"/></td>
-    			<td><a href = "retrieveexpenseforupdate.action?id=${elem.expenseID }"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i> Edit</button></a>
-    			<a href = "deleteexpense.action?id=${elem.expenseID }"onclick = 'return confirm("Confirm Deletion")'><button type="button" class="btn btn-block btn-danger">Delete</button></a>
-    			</td>
-    			</tr>
-				</c:forEach>
-           		</tbody>
+              <tbody>
+              <c:forEach items="${expenses}" var="elem">
+              <tr>
+              
+          <td><c:out value="${elem.category}" /></td>
+          <td><c:out value="${elem.cost }"/></td>
+          <td><c:out value="${elem.comment }"/></td>
+          <td><c:out value="${elem.date }"/></td>
+          <td><a href = "retrieveexpenseforupdate.action?id=${elem.expenseID }"><button type="button" class="btn btn-block btn-edit"><i class="fas fa-pen"></i> Edit</button></a>
+          <a href = "deleteexpense.action?id=${elem.expenseID }"onclick = 'return confirm("Confirm Deletion")'><button type="button" class="btn btn-block btn-delete"><i class="fas fa-trash"></i>Delete</button></a>
+          </td>
+          </tr>
+        </c:forEach>
+              </tbody>
               </table>
             </div>
             <!-- /.card-body -->
           </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- /.control-sidebar -->
+</div>
           <!-- /.card -->
           
 <%@include file = "footer.jsp"%>

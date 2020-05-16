@@ -3,6 +3,24 @@
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <%@include file = "navbar.jsp"%>
+<style>
+  .btn-new{
+    background-color: #4AD991;
+    color: white;
+  }
+  .btn-generate{
+    background-color: #DAA2EB;
+    color: white;
+  }
+  .btn-edit{
+    background-color: #73C2FB;
+    color: white;
+  }
+  .btn-delete{
+    background-color: #FF6B7F;
+    color: white;
+  }
+  </style>
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -32,9 +50,9 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-               <div class = "col-sm-3">
-             <a href = "newcategory.jsp"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i>New Category</button></a>
-            	</div>
+              <div class = "row">
+                <a href = "newcategory.jsp"style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new" style="width:auto;height: auto;"><i class="fas fa-plus"></i>New Category</button></a>
+              </div>
               <table id="expenses" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -53,8 +71,8 @@
     			<td><c:out value="${elem.description }"/></td>
    			<td><img src = "retrieveimage.action?module=category&fileName=<c:out value = '${elem.image }'/>"/></td>
   		
-    			<td><a href = "retrievecategory.action?id=${elem.id }"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i> Edit</button></a>
-    			<a href = "deletecategory.action?id=${elem.id }"onclick = 'return confirm("Confirm Deletion")'><button type="button" class="btn btn-block btn-danger">Delete</button></a>
+    			<td><a href = "retrievecategory.action?id=${elem.id }"><button type="button" class="btn btn-block btn-edit"><i class="fas fa-pen"></i> Edit</button></a>
+    			<a href = "deletecategory.action?id=${elem.id }"onclick = 'return confirm("Confirm Deletion")'><button type="button" class="btn btn-block btn-delete">Delete</button></a>
     			</td>
     			</tr>
 				</c:forEach>
