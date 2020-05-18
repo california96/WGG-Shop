@@ -31,7 +31,7 @@ public class WishlistDeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doPost(request, response);
 	}
 
 	/**
@@ -40,18 +40,13 @@ public class WishlistDeleteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		int wishID = Integer.parseInt(request.getParameter("wishID"));
-		double amount = Double.parseDouble(request.getParameter("amount"));	
+		int wishID = Integer.parseInt(request.getParameter("id"));
 	
-		String comment = request.getParameter("comment");
 		
 		HttpSession session = request.getSession(false);
 		User user = (User)session.getAttribute("user");
 		Connection connection = DBConnection.getConnection(getServletContext());
-		if(StringUtils.isBlank(comment)) {
-			response.sendRedirect("400.jsp");
-			return;
-		}
+
 		
 		WishlistOperations wishOps = new WishlistOperations();
 		wishOps.deleteWishlist(connection, wishID);
