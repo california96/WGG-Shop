@@ -54,7 +54,7 @@
             <div class="card-body">
               <div class="row">
              <a href = "newexpense.jsp"style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new" style="width:auto;height: auto;"><i class="fas fa-plus"></i>New Expense</button></a>
-             <a href = "#"><button type="button" class="btn btn-block btn-generate" style="width:auto;height:auto;"><i class="fas fa-pen"></i>Generate Report</button></a>
+             <a href = "downloadexpenses.action"><button type="button" class="btn btn-block btn-generate" style="width:auto;height:auto;"><i class="fas fa-pen"></i>Generate Report</button></a>
            </div>
              <table id="expenses" class="table table-bordered table-hover">
                 <thead>

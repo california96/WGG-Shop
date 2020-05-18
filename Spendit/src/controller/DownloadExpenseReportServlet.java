@@ -40,6 +40,7 @@ public class DownloadExpenseReportServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		User user = (User)session.getAttribute("user");
 		ExpenseOperations exOps = new ExpenseOperations();
+		response.setHeader("Content-disposition","attachment;filename="+ user.getUserName() + "-expenses" + ".pdf");
 		ArrayList<Expense> expenses = exOps.getExpensesInMonth(connection, user.getUserID());
 		exOps.downloadExpenses(response, expenses, user);
 	/*	try {

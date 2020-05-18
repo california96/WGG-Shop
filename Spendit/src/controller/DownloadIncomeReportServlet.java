@@ -41,6 +41,9 @@ public class DownloadIncomeReportServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		User user = (User)session.getAttribute("user");
 		IncomeOperations inOps = new IncomeOperations();
+		
+		response.setHeader("Content-disposition","attachment;filename="+ user.getUserName() + "-income" + ".pdf");
+
 		ArrayList<Income> income = inOps.getAllMonthsIncome(connection, user.getUserID());
 		inOps.downloadIncome(response, income, user);
 		
