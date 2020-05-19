@@ -60,6 +60,18 @@ a.product-price{
 i.icon{
   background-image: url(resources/images/coffee-category.png);
 }
+img.logo{
+  width: 30%;
+  height: auto;
+}
+span.logo-text{
+   font-family: 'Bangers';
+   font-size: 50px;
+   font-weight: bold;
+   color: white;
+   text-shadow: 0px -3px 0px #000000, 4px -4px 0px #000000
+}
+
 
 </style>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -107,8 +119,11 @@ i.icon{
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-lime elevation-4 color">
     <!-- Brand Logo -->
-    <a href="index.jsp" class="brand-link " style="border-bottom: 1px solid #f8f9fa;">
-      <img src="resources/images/official-logo.png" alt="SpendIt Logo" style="margin-left: -10px;">
+    <a href="index.jsp" class="brand-link " style="border-bottom: 1px solid #FFFFFF;
+    color: rgba(255,255,255,.8);">
+      <img src="resources/images/logo.png" alt="SpendIt Logo" class="brand-image" style="max-height: 65px;
+    width: auto;margin-left: -1px;">
+      <span class="brand-text font-weight-light logo-text">SPENDIT</span>
       <!---<span class="brand-text font-weight-light" style="color:white;">AdminLTE 3</span> --->
     </a>
 

@@ -69,9 +69,9 @@ $('#imagechoices').ddslick({
 <script src="adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- ChartJS -->
-<script src="adminlte/plugins/chart.js/Chart.min.js"></script>
+<!--<script src="adminlte/plugins/chart.js/Chart.min.js"></script>-->
 <!-- Sparkline -->
-<script src="adminlte/plugins/sparklines/sparkline.js"></script>
+<!--<script src="adminlte/plugins/sparklines/sparkline.js"></script>-->
 <!-- JQVMap -->
 <script src="adminlte/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
@@ -83,7 +83,7 @@ $('#imagechoices').ddslick({
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
-<script src="adminlte/plugins/summernote/summernote-bs4.min.js"></script>
+<!--<script src="adminlte/plugins/summernote/summernote-bs4.min.js"></script>-->
 <!-- overlayScrollbars -->
 <script src="adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
