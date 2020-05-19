@@ -93,6 +93,8 @@ a.login:hover {
   background-color: #73C2FB !important;
     color: #fff;
 }
+
+
 </style>
 <%@include file = "header.jsp" %>
 <body>
@@ -185,7 +187,7 @@ function check() {
         <div class="login100-more" style="background-image: url(resources/images/register-write.jpg);">
           <div class="login-main-text">
           <h3 class="login">Register Now!</h3>
-            <p class="login">LOL</p>
+            <p class="login">Read up for a carefree Spendit - ing experiece</p>
           </div>
         </div>
       </div>
