@@ -69,9 +69,9 @@ $('#imagechoices').ddslick({
 <script src="adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- ChartJS -->
-<script src="adminlte/plugins/chart.js/Chart.min.js"></script>
+<!--<script src="adminlte/plugins/chart.js/Chart.min.js"></script>-->
 <!-- Sparkline -->
-<script src="adminlte/plugins/sparklines/sparkline.js"></script>
+<!--<script src="adminlte/plugins/sparklines/sparkline.js"></script>-->
 <!-- JQVMap -->
 <script src="adminlte/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
@@ -83,7 +83,7 @@ $('#imagechoices').ddslick({
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
-<script src="adminlte/plugins/summernote/summernote-bs4.min.js"></script>
+<!--<script src="adminlte/plugins/summernote/summernote-bs4.min.js"></script>-->
 <!-- overlayScrollbars -->
 <script src="adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
@@ -206,7 +206,7 @@ $(document).ready(function() {
                  $("#expense-today").append('<h3>Php' +data.expense+'<h3>');
                  $("#expense-today").append('<p>Spent today</p>');
              }); */
-             $("#expense-today").append('<h3>Php ' + data['expense'] + '</h3>');
+             $("#expense-today").append('<h3 style="font-size: larger;">Php ' + data['expense'] + '</h3>');
              $("#expense-today").append('<p>Spent today</p>');
 
 			
@@ -231,7 +231,7 @@ $(document).ready(function() {
                 $("#expense-today").append('<h3>Php' +data.expense+'<h3>');
                 $("#expense-today").append('<p>Spent today</p>');
             }); */
-            $("#expense-month").append('<h3>Php ' + data['monthexpense'] + '</h3>');
+            $("#expense-month").append('<h3 style="font-size: larger;">Php ' + data['monthexpense'] + '</h3>');
             $("#expense-month").append('<p>Spent this month</p>');
 
 			
@@ -250,7 +250,7 @@ $(document).ready(function() {
        dataType: 'json',
        success: function(data) {
   
-           $("#monthly-income").append('<h3>Php ' + data['monthlyincome'] + '</h3>');
+           $("#monthly-income").append('<h3 style="font-size: larger;">Php ' + data['monthlyincome'] + '</h3>');
            $("#monthly-income").append('<p>Income this month</p>');
 
 			
@@ -295,7 +295,7 @@ $(document).ready(function() {
       	 $ulSub.append() */
       	 //<h3 class="timeline-header"><a href="#" class="activities">John Doe</a> had a <a href="#"class="activities">Starbucks Coffee</a> worth<a href="#" class="activities"> ₱180.00</a></h3>
 
-      	 $('#transaction-history').append('<div><i class = "fas"><img src ="retrieveimage.action?module=category&fileName=' +item.image+ '" style="margin-left: -5px;"></i><div class = "timeline-item"><h3 class = "timeline-header><a href = "#" class = "activities">' + item.firstname + ' ' + item.lastname + ' had a <a href= "#" class = "activities">' + item.comment + '</a> worth <a href = "#" class = "activities"> Php ' + item.cost + '</a></h3><div class = "timeline-body"><span title = "'+item.date+'"><i class = "fas fa-clock" style = "color: #999;"></i>'  + moment("'"+item.date+"'").endOf('minutes').fromNow() + '</span></div></div></div>');
+      	 $('#transaction-history').append('<div><i class = "fas"><img src ="retrieveimage.action?module=category&fileName=' +item.image+ '" style="margin-left: -5px;"></i><div class = "timeline-item"><h3 class = "timeline-header"><a href = "#" class = "activities">' + item.firstname + ' ' + item.lastname + ' had a <a href= "#" class = "activities">' + item.comment + '</a> worth <a href = "#" class = "activities"> Php ' + item.cost + '</a></h3><div class = "timeline-body"><span title = "'+item.date+'"><i class = "fas fa-clock" style = "color: #999;"></i>'  + moment("'"+item.date+"'").endOf('minutes').fromNow() + '</span></div></div></div>');
       	
        });
 		
@@ -309,7 +309,7 @@ $(document).ready(function() {
       dataType: 'json',
       success: function(data) {
  
-          $("#wishlist-total").append('<h3>Php ' + data['wishtotal'] + '</h3>');
+          $("#wishlist-total").append('<h3 style="font-size: larger;">Php ' + data['wishtotal'] + '</h3>');
           $("#wishlist-total").append('<p>Wishlist Budget</p>');
 
 			
@@ -332,6 +332,54 @@ $(document).ready(function() {
    
   });
 </script>
+
+<script>
+$("#signup-form input").prop("disabled", true);
+$("#signup-form button").prop("disabled", true);
+</script>
+
+<script>
+$(document).ready(function() {
+$("#enable").click(function(){
+$("#signup-form input").prop("disabled", false);
+$("#signup-form button").prop("disabled", false);
+});
+});
+
+</script>
+<script>
+  $(document).ready(function() {
+$("#disable").click(function(){
+$("#signup-form input").prop("disabled", true);
+$("#signup-form button").prop("disabled", true);
+});
+});
+</script>
+
+<script>
+$("#password-form input").prop("disabled", true);
+$("#password-form button").prop("disabled", true);
+</script>
+
+<script>
+$(document).ready(function() {
+$("#enable-two").click(function(){
+$("#password-form input").prop("disabled", false);
+$("#password-form button").prop("disabled", false);
+});
+});
+
+</script>
+
+<script>
+  $(document).ready(function() {
+$("#disabletwo").click(function(){
+$("#password-form input").prop("disabled", true);
+$("#password-form button").prop("disabled", true);
+});
+});
+</script>
+
 
 </body>
 </html>

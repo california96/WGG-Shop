@@ -51,7 +51,7 @@
             <!-- /.card-header -->
             <div class="card-body">
               <div class = "row">
-                <a href = "newcategory.jsp"style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new" style="width:auto;height: auto;"><i class="fas fa-plus"></i>New Category</button></a>
+                <a href = "newcategory.jsp"style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new" style="width:auto;height: auto;"><i class="fas fa-plus" style="padding-right: 5px;"></i>New Category</button></a>
               </div>
               <table id="expenses" class="table table-bordered table-hover">
                 <thead>
@@ -71,8 +71,8 @@
     			<td><c:out value="${elem.description }"/></td>
    			<td><img src = "retrieveimage.action?module=category&fileName=<c:out value = '${elem.image }'/>"/></td>
   		
-    			<td><a href = "retrievecategory.action?id=${elem.id }"><button type="button" class="btn btn-block btn-edit"><i class="fas fa-pen"></i> Edit</button></a>
-    			<a href = "deletecategory.action?id=${elem.id }"onclick = 'return confirm("Confirm Deletion")'><button type="button" class="btn btn-block btn-delete">Delete</button></a>
+    			<td><div class="row" style="justify-content: center;"><a href = "retrievecategory.action?id=${elem.id }"><button type="button" class="btn btn-block btn-edit"><i class="fas fa-pen"></i> Edit</button></a>
+    			<a href = "deletecategory.action?id=${elem.id }"onclick = 'return confirm("Confirm Deletion")' style="padding-left: 5px;"><button type="button" class="btn btn-block btn-delete">Delete</button></a></div>
     			</td>
     			</tr>
 				</c:forEach>

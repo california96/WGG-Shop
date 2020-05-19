@@ -32,7 +32,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
               <li class="breadcrumb-item active">Wishlist</li>
             </ol>
           </div><!-- /.col -->
@@ -52,7 +52,7 @@
             <!-- /.card-header -->
             <div class="card-body">
               <div class = "row">
-                <a href = "newwish.jsp"style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new" style="width:auto;height: auto;"><i class="fas fa-plus"></i>New Wish</button></a>
+             <a href = "newwish.jsp" style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new"  style="width:auto;height: auto;"><i class="fas fa-plus" style="padding-right: 5px;"></i>New Wish</button></a>
             	</div>
               <table id="expenses" class="table table-bordered table-hover">
                 <thead>
@@ -79,8 +79,8 @@
     			
     			</c:if>
     			<c:if test = "${elem.statusID != 4 }">
-    			<td><a href = "retrievewish.action?id=${elem.id }"><button type="button" class="btn btn-block btn-primary"><i class="fas fa-pen"></i> Edit</button></a>
-    			<a href = "deletewish.action?id=${elem.id }"onclick = 'return confirm("Confirm Deletion")'><button type="button" class="btn btn-block btn-danger">Delete</button></a>
+    			<td><div class="row" style="justify-content: center;"><a href = "retrievewish.action?id=${elem.id }"><button type="button" class="btn btn-block btn-edit"><i class="fas fa-pen"></i> Edit</button></a>
+    			<a href = "deletewish.action?id=${elem.id }"onclick = 'return confirm("Confirm Deletion")' style="padding-left: 5px;"><button type="button" class="btn btn-block btn-delete">Delete</button></a></div>
     			</td>
     			</c:if>
     			</tr>
@@ -93,5 +93,3 @@
           <!-- /.card -->
           
 <%@include file = "footer.jsp"%>
-
-    			</tr>

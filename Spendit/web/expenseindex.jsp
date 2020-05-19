@@ -33,7 +33,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
               <li class="breadcrumb-item active">Expenses</li>
             </ol>
           </div><!-- /.col -->
@@ -52,9 +52,9 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <div class="row">
-             <a href = "newexpense.jsp"style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new" style="width:auto;height: auto;"><i class="fas fa-plus"></i>New Expense</button></a>
-             <a href = "downloadexpenses.action"><button type="button" class="btn btn-block btn-generate" style="width:auto;height:auto;"><i class="fas fa-pen"></i>Generate Report</button></a>
+              <div class="row" style="padding-bottom: 10px;">
+             <a href = "newexpense.jsp"style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new" style="width:auto;height: auto;"><i class="fas fa-plus" style="padding-right: 5px;"></i>New Expense</button></a>
+             <a href = "downloadexpenses.action" style="margin-left: 5px;"><button type="button" class="btn btn-block btn-generate" style="width:auto;height:auto;"><i class="fas fa-file-download" style="padding-right: 5px;"></i>Generate Report</button></a>
            </div>
              <table id="expenses" class="table table-bordered table-hover">
                 <thead>
@@ -73,8 +73,8 @@
           <td><c:out value="${elem.cost }"/></td>
           <td><c:out value="${elem.comment }"/></td>
           <td><c:out value="${elem.date }"/></td>
-          <td><a href = "retrieveexpenseforupdate.action?id=${elem.expenseID }"><button type="button" class="btn btn-block btn-edit"><i class="fas fa-pen"></i> Edit</button></a>
-          <a href = "deleteexpense.action?id=${elem.expenseID }"onclick = 'return confirm("Confirm Deletion")'><button type="button" class="btn btn-block btn-delete"><i class="fas fa-trash"></i>Delete</button></a>
+          <td><div class="row" style="justify-content: center;"><a href = "retrieveexpenseforupdate.action?id=${elem.expenseID }"><button type="button" class="btn btn-block btn-edit"><i class="fas fa-pen"></i> Edit</button></a>
+          <a href = "deleteexpense.action?id=${elem.expenseID }"onclick = 'return confirm("Confirm Deletion")' style="padding-left: 5px;"><button type="button" class="btn btn-block btn-delete"><i class="fas fa-trash"></i>Delete</button></a></div>
           </td>
           </tr>
         </c:forEach>

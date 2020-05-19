@@ -3,6 +3,24 @@
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <%@include file = "navbar.jsp"%>
+<style>
+    .btn-submit{
+    background-color: #73C2FB;
+    color: white;
+    float: right;
+  }
+     .btn-edit{
+    background-color: #DAA2EB;
+    color: white;
+    float: right;
+  }
+
+    .btn-cancel{
+    color: #DAA2EB;
+    border-color: #DAA2EB;
+    float: right;
+  }
+  </style>
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -14,7 +32,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+             <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
               <li class="breadcrumb-item active">Account Settings</li>
             </ol>
           </div><!-- /.col -->
@@ -25,7 +43,7 @@
 <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-md-6">
+        <div class="container-fluid">
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Account Settings</h3>
@@ -35,11 +53,12 @@
           <div class = "card">
           	<div class = "card-header">
           		<h3 class="card-title">User Profile</h3>
+               <button class="btn btn-edit" id="enable"><i class="fas fa-pen" style="padding-right: 5px;"></i>Edit</a></button>
           	</div>
           	<div class = "card-body">
           		
           		<form action = "updateaccount.action" method = "post" id = "signup-form" enctype = "multipart/form-data" autocomplete = "off"> <!-- Will need a servlet that edits everything but passwords. will do file processing -->
-          		<img src = "retrieveimage.action?module=profile&fileName=${sessionScope.user.image }"/>
+          		<img src = "retrieveimage.action?module=profile&fileName=${sessionScope.user.image }" style="width: 100px;height: 120px;"/>
           		
           		<div class = "form-group">
           			<label for = "file">Upload a New Profile Picture</label>
@@ -63,7 +82,11 @@
           			</div>
           			
           			<div class="form-group">
-                  	<button type="submit" class="btn btn-primary">Submit</button>
+                  <div class="row" style="float: right;">
+                    <a style="padding-right: 10px;"><button type = "button" class="btn btn-cancel" id= "disable">Cancel</button></a>
+                  	<button type="submit" class="btn btn-submit">Save</button>
+
+                  </div>
                 	</div>
           		</form>
           	</div>
@@ -73,10 +96,11 @@
           <div class = "card">
           	<div class = "card-header">
           		<h3 class="card-title">Security Settings</h3>
+              <button class="btn btn-edit" id="enable-two"><i class="fas fa-pen" style="padding-right: 5px;"></i>Edit</a></button>
           	</div>
           	<div class = "card-body">
           		
-          		<form action = "updatepassword.action" method = "post"> <!-- This should lead to Password Change Servlet  -->
+          		<form action = "updatepassword.action" method = "post" id="password-form"> <!-- This should lead to Password Change Servlet  -->
           			<div class = "form-group">
           			<label for = "currentpass">Current Password</label>
           			<input type = "password" name = "currentpass" class = "form-control" required>
@@ -90,7 +114,11 @@
           			<input type = "password" name = "confirmnew" class = "form-control" required>
           			</div>
           			<div class="form-group">
-                  	<button type="submit" class="btn btn-primary">Submit</button>
+                  	<div class="row" style="float: right;">
+                    <a style="padding-right: 10px;"><button type = "button" class="btn btn-cancel" id= "disabletwo">Cancel</button></a>
+                    <button type="submit" class="btn btn-submit">Save</button>
+
+                  </div>
                 	</div>
                 </form>
           	</div>

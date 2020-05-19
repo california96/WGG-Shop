@@ -30,8 +30,24 @@
 
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bangers" />
   <!-- dropdowns -->
-  <link href="dropdownresouces/dd.css" rel = "stylesheet">
   <link rel="stylesheet" type="text/css" href="resources/css/login.css">
+
+      <!-- DataTables -->
+  <link rel="stylesheet" href="adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+    <!-- Custom stlylesheet -->
+  <link type="text/css" rel="stylesheet" href="resources/css/error.css" />
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="adminlte/dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+      <!-- Custom stlylesheet -->
+  <link type="text/css" rel="stylesheet" href="resources/css/error.css" />
+  <link type="text/css" rel="stylesheet" href="resources/css/success.css" />
+  <link rel="shortcut icon" href="resources/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="resources/images/favicon.ico" type="image/x-icon">
 
 
 
