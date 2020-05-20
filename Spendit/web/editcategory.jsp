@@ -46,6 +46,11 @@
                  <input type = "hidden" name = "categoryID" value = "${category.id }">
               
                 <div class="card-body">
+                 <div class="form-group col-sm-3">
+                    <label for="name">Current Image</label>
+                    <img src = "retrieveimage.action?module=category&fileName=${category.image}" class="img-circle elevation-2 avatar" alt="User Image"/>
+                    
+                  </div>
                   <div class="form-group col-sm-3">
                     <label for="name">Category Name</label>
                       <input type = "text" name = "name" class = "form-control" id = "name" value = "${category.name }" onkeydown = "preventNumbers(event);" onkeyup = "preventNumbers(event);" onpaste = "return false" required>
@@ -73,7 +78,7 @@
                     	<option data-imagesrc="categories/coffee-category.png" value = "coffee-category.png"></option>
                     	<option data-imagesrc="categories/education-category.png" value = "education-category.png"></option>
                     	<option data-imagesrc="categories/electronics-category.png" value = "electronics-category.png"></option>
-                    	<option data-imagesrc="categories/fitness-category.png" value = "fitness-category.png"></option>
+                    	<option data-imagesrc="categories/fitness-category.png" value = "fitness-category.png" ></option>
                     	<option data-imagesrc="categories/food-category.png" value = "food-category.png"></option>
                     	<option data-imagesrc="categories/health-category.png" value = "health-category.png"></option>
                     	<option data-imagesrc="categories/movie-category.png" value = "movie-category.png"></option>

@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="adminlte/plugins/daterangepicker/daterangepicker.css">
+
   <!-- summernote -->
   <link rel="stylesheet" href="adminlte/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
@@ -48,6 +49,17 @@
   <link type="text/css" rel="stylesheet" href="resources/css/success.css" />
   <link rel="shortcut icon" href="resources/images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="resources/images/favicon.ico" type="image/x-icon">
+
+  <!-- Datetime picker -->
+  <link rel="stylesheet" href="adminlte/plugins/datetimepicker/bootstrap-datetimepicker.css">
+
+<link rel="stylesheet" href="adminlte/plugins/datetimepicker/bootstrap-datetimepicker.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+
 
 
 

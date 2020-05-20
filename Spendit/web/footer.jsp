@@ -22,7 +22,16 @@
 </div>
 <!-- ./wrapper -->
 <!-- jQuery -->
+<link rel = "stylesheet" type = "text/css" href = "adminlte/plugins/datetimepicker/bootstrap-datetimepicker.css">
+<script src="adminlte/plugins/moment/moment.min.js"></script>
+
 <script src="adminlte/plugins/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<script src = "adminlte/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script>
+jQuery('#date').datetimepicker();
+</script>
+
 <!-- for dropdown -->
 <script src = "dropdownresources/jquery.dd.min.js"></script>
 <!-- <script>
@@ -78,7 +87,7 @@ $('#imagechoices').ddslick({
 <!-- jQuery Knob Chart -->
 <script src="adminlte/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
-<script src="adminlte/plugins/moment/moment.min.js"></script>
+
 <script src="adminlte/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
@@ -315,6 +324,17 @@ $(document).ready(function() {
 			
          
        }
+	});
+	$.ajax({
+		url: "retrievewishpercent.action",
+		type: 'GET',
+		dataType: 'json',
+		success: function(data){
+			$ulSub = $("#wish-percentages");
+	         $.each(data, function(i, item){
+	        	 $ulSub.append('<li class="item"><div class="progress-group" style = "padding:left: 12px;padding-right: 12px;">' +item.comment+ '<span class = "float-right"><b>Php ' + item.partial+ '/'+item.amount+'</b></span><div class = "progress progress-sm"><div class = "progress-bar bg-primary" style = "width:'+item.percentages+'%;background-color: #73C2FB!important;"></div></div></div>');
+	         });
+		}
 	});
 	 });
 </script> 

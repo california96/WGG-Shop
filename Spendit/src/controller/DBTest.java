@@ -15,13 +15,26 @@ public class DBTest {
 	//	String sample = "2020-05-08T11:30";
 	//	Date date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").parse(sample);
 	//	System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date));
-		ExpenseOperations exOps = new ExpenseOperations();
-		ArrayList<Map<String, String>> cExps = exOps.getTopExpenseCategories(DBConnection.getConnection(), 1);
-		Gson gson = new Gson();
-		String json = gson.toJson(cExps);
-//		for(Map<String, String> m : cExps) {
-//		System.out.println(m);
-//		}
-		System.out.println(json);
+		String date = "05/20/2020 01:05 PM";
+		try {
+			
+			java.util.Date date2 = new SimpleDateFormat("MM/dd/yyyy hh:mm a").parse(date);
+			System.out.println(date2);
+			date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date2);
+			System.out.println(date);
+//			HttpSession session = request.getSession(false);
+//			User user = (User)session.getAttribute("user");
+//			Connection connection = DBConnection.getConnection(getServletContext());
+//			ExpenseOperations exOps = new ExpenseOperations();
+//			if(exOps.insert(connection, categoryID, user.getUserID(), cost, date, comment)) {
+//				ArrayList<Expense> expenses = exOps.getAllExpenses(connection, user.getUserID());
+//				request.setAttribute("expenses", expenses);
+//				request.getRequestDispatcher("expenseindex.jsp").forward(request, response);
+				
+//			}
+		
+			}catch(java.text.ParseException pe) {
+				System.err.println(pe.getMessage());
+			}
 	}
 }

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 
 import javax.servlet.ServletException;
@@ -53,6 +54,8 @@ public class UpdatePasswordServlet extends HttpServlet {
 			response.sendRedirect("accountsettings.jsp");
 		}
 		else {
+			PrintWriter out = response.getWriter();
+			out.print("<script>alert('Password is incorrect!')");
 			response.sendRedirect("accountsettings.jsp");
 		}
 		

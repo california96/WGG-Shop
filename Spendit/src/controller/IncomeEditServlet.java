@@ -52,15 +52,17 @@ public class IncomeEditServlet extends HttpServlet {
 			response.sendRedirect("400.jsp");
 			return;
 		}
+		try {
+		ExpenseOperations exOps = new ExpenseOperations();
+		java.util.Date parsedDate = new SimpleDateFormat("MM/dd/yyyy hh:mm a").parse(date);// Month/Day/Year Hour:Minute A/PM
+		date = new SimpleDateFormat("yyyy-MM-dd").format(parsedDate);// Year-Month-Day Hour:Minute:Seconds 24 hour
 		inOps.editIncome(connection, incomeID, categoryID, amount, date, comment);
 		
-		HttpSession session = request.getSession(false);
-		User user = (User)session.getAttribute("user");
-		ArrayList<Income> income = inOps.getAllIncome(connection, user.getUserID());
-		request.setAttribute("income", income);
-		request.getRequestDispatcher("incomeindex.jsp").forward(request, response);
 		
-	
+		response.sendRedirect("retrieveallincome.action");
+		}catch(ParseException pe) {
+			System.err.println(pe.getMessage());
+		}
 
 		
 	}

@@ -184,7 +184,17 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <ul class="products-list product-list-in-card pl-2 pr-2">
+                <ul class="products-list product-list-in-card pl-2 pr-2" id = "wish-percentages">
+                  <!-- <li class="item">
+                    <div class="progress-group" style="padding-left: 12px;padding-right: 12px;">
+                      Mobile Phone
+                      <span class="float-right"><b>₱13,000</b>/₱20,000</span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-primary" style="width: 80%;background-color: #73C2FB!important;"></div>
+                      </div>
+                    </div>
+                  </li>
+                  /.item
                   <li class="item">
                     <div class="progress-group" style="padding-left: 12px;padding-right: 12px;">
                       Mobile Phone
@@ -194,7 +204,7 @@
                       </div>
                     </div>
                   </li>
-                  <!-- /.item -->
+                  /.item
                   <li class="item">
                     <div class="progress-group" style="padding-left: 12px;padding-right: 12px;">
                       Mobile Phone
@@ -204,7 +214,7 @@
                       </div>
                     </div>
                   </li>
-                  <!-- /.item -->
+                  /.item
                   <li class="item">
                     <div class="progress-group" style="padding-left: 12px;padding-right: 12px;">
                       Mobile Phone
@@ -214,17 +224,7 @@
                       </div>
                     </div>
                   </li>
-                  <!-- /.item -->
-                  <li class="item">
-                    <div class="progress-group" style="padding-left: 12px;padding-right: 12px;">
-                      Mobile Phone
-                      <span class="float-right"><b>₱13,000</b>/₱20,000</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-primary" style="width: 80%;background-color: #73C2FB!important;"></div>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- /.item -->
+                  /.item
                  <li class="item">
                     <div class="progress-group" style="padding-left: 12px;padding-right: 12px;">
                       Mobile Phone
@@ -233,7 +233,7 @@
                         <div class="progress-bar bg-primary" style="width: 80%;background-color: #73C2FB!important;"></div>
                       </div>
                     </div>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
               <!-- /.card-footer -->

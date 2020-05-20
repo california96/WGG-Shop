@@ -13,7 +13,7 @@
                 <h1>400</h1>
             </div>
             <h2>A bad request was sent.</h2>
-            <p>Your request resulted in an error. <a href="#">Return to Dashboard</a></p>
+            <p>Your request resulted in an error. <a href="index.jsp">Return to Dashboard</a></p>
         </div>
     </div>
 

@@ -49,15 +49,16 @@ public class ExpenseEditServlet extends HttpServlet {
 			response.sendRedirect("400.jsp");
 			return;
 		}
+		try {
 		ExpenseOperations exOps = new ExpenseOperations();
+		java.util.Date parsedDate = new SimpleDateFormat("MM/dd/yyyy hh:mm a").parse(date);// Month/Day/Year Hour:Minute A/PM
+		date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(parsedDate);// Year-Month-Day Hour:Minute:Seconds 24 hour
 		exOps.editExpense(connection, expenseID, categoryID, cost, date, comment);
 		
-		HttpSession session = request.getSession(false);
-		User user = (User)session.getAttribute("user");
-		ArrayList<Expense> expenses = exOps.getAllExpenses(connection, user.getUserID());
-		request.setAttribute("expenses", expenses);
-		request.getRequestDispatcher("expenseindex.jsp").forward(request, response);
-		
+		response.sendRedirect("retrieveexpenses.action");
+		}catch(ParseException pe) {
+			System.err.println(pe.getMessage());
+		}
 	
 
 		

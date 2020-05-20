@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -50,11 +51,15 @@ public class IncomeCreateServlet extends HttpServlet {
 			response.sendRedirect("400.jsp");
 			return;
 		}
+		try {
+		java.util.Date parsedDate = new SimpleDateFormat("MM/dd/yyyy hh:mm a").parse(date);// Month/Day/Year Hour:Minute A/PM
+		date = new SimpleDateFormat("yyyy-MM-dd").format(parsedDate);// Year-Month-Day Hour:Minute:Seconds 24 hour
 		IncomeOperations inOps = new IncomeOperations();
 		if(inOps.insert(connection, user.getUserID(), categoryID, amount, date, comment)) {
-			ArrayList<Income> income = inOps.getAllIncome(connection, user.getUserID());
-			request.setAttribute("income", income);
-			request.getRequestDispatcher("incomeindex.jsp").forward(request, response);
+			response.sendRedirect("retrieveallincome.action");
+		}
+		}catch(java.text.ParseException pe) {
+			System.err.println(pe.getMessage());
 		}
 	}
 

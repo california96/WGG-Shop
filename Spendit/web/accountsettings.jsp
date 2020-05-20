@@ -100,18 +100,18 @@
           	</div>
           	<div class = "card-body">
           		
-          		<form action = "updatepassword.action" method = "post" id="password-form"> <!-- This should lead to Password Change Servlet  -->
+          		<form action = "updatepassword.action" method = "post" id="password-form" onsubmit="return validate()"> <!-- This should lead to Password Change Servlet  -->
           			<div class = "form-group">
           			<label for = "currentpass">Current Password</label>
           			<input type = "password" name = "currentpass" class = "form-control" required>
           			</div>
           			<div class = "form-group">
           			<label for = "newpass">New Password</label>
-          			<input type = "password" name = "newpass" class = "form-control" required>
+          			<input type = "password" name = "newpass" class = "form-control" id = "newpass" required>
           			</div>
           			<div class = "form-group">
           			<label for = "confirmnew">Confirm New Password</label>
-          			<input type = "password" name = "confirmnew" class = "form-control" required>
+          			<input type = "password" name = "confirmnew" class = "form-control" id = "confirmnew" required>
           			</div>
           			<div class="form-group">
                   	<div class="row" style="float: right;">
@@ -126,5 +126,15 @@
           		
           	</div>
           </div>
-          
+<script type="text/javascript">
+    function validate() {
+        var password = document.getElementById("newpass").value;
+        var confirmPassword = document.getElementById("confirmnew").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script> 
 <%@include file = "footer.jsp"%>

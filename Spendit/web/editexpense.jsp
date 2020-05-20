@@ -1,6 +1,8 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <%@include file = "navbar.jsp"%>
 <style>
@@ -58,15 +60,18 @@
                   </div>
                   
                   <div class="form-group col-sm-3">
-                  <label>Date:</label>
+                  <label>Date</label>
                   <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="far fa-calendar-alt"></i>
-                      </span>
+                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <fmt:parseDate value="${expense.date}" pattern="yyyy-MM-dd HH:mm:ss" var="myDate"/>
+                    <fmt:formatDate value="${myDate}" var="startFormat" pattern="MM/dd/yyyy hh:mm a"/>
+                  
+                    <input type="text" class="form-control datetimepicker-input" id="date" name = "date" value = "${startFormat}">
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
-                    <input type="datetime-local" class="form-control float-right" id="date" value = "${expense.date }"  min='2020-01-01' name = "date" required>
-                  </div>
+                </div>
+            </div>
                   <!-- /.input group -->
                 </div>
                  <div class="form-group">

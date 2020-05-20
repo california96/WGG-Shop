@@ -52,7 +52,7 @@
             <!-- /.card-header -->
             <div class="card-body">
               <div class="row" style="padding-bottom: 10px;">
-             <a href = "newincome.jsp"style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new" style="width:auto;height: auto;"><i class="fas fa-plus" style="padding-right: 5px;"></i>New Expense</button></a>
+             <a href = "newincome.jsp"style="padding-right: 5px; padding-bottom: 10px; padding-left: 5px;"><button type="button" class="btn btn-block btn-new" style="width:auto;height: auto;"><i class="fas fa-plus" style="padding-right: 5px;"></i>New Income</button></a>
              <a href = "downloadincome.action" style="margin-left: 5px;"><button type="button" class="btn btn-block btn-generate" style="width:auto;height:auto;"><i class="fas fa-file-download"style="padding-right: 5px;"></i>Generate Report</button></a>
            </div>
               <table id="expenses" class="table table-bordered table-hover">

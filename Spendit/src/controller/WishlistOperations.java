@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 public class WishlistOperations {
 	public boolean insert(Connection connection, Wishlist wishlist) {
 		boolean isSuccessful = false;
@@ -119,5 +121,35 @@ public class WishlistOperations {
 			System.err.println(sqle.getMessage());
 		}
 		return wishTotal;
+	}
+	public ArrayList<Map<String, String>> getWishlistProgress(Connection connection, int userID){
+		ArrayList<Map<String, String>> wishes = new ArrayList<Map<String,String>>();
+		String sql = "SELECT wishID,comment, amount, (SELECT SUM(incomes.amount) FROM incomes INNER JOIN wishlist ON incomes.categoryID = wishlist.incomeSourceID WHERE wishlist.userID = ? AND wishlist.statusID != 4) as 'partial',((SELECT SUM(incomes.amount) FROM incomes INNER JOIN wishlist ON incomes.categoryID = wishlist.incomeSourceID WHERE wishlist.userID = ? AND wishlist.statusID != 4)/amount ) as 'percentage', (SELECT SUM(amount) \n" + 
+				"FROM wishlist\n" + 
+				"WHERE userID = ? and statusID != 4) as 'total'\n" + 
+				"FROM wishlist\n" + 
+				"WHERE userID = ? and statusID != 4";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, userID);
+			ps.setInt(2, userID);
+			ps.setInt(3, userID);
+			ps.setInt(4, userID);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				HashMap<String, String> wish = new HashMap<String, String>();
+				wish.put("wishID", String.valueOf(rs.getInt("wishID")));
+				wish.put("comment", rs.getString("comment"));
+				wish.put("partial", String.valueOf(rs.getString("partial")));
+				wish.put("amount", String.valueOf(rs.getString("amount")));
+
+				wish.put("percentages", String.valueOf(rs.getDouble("percentage") * 100));
+				wish.put("total", String.valueOf(rs.getString("total")));
+				wishes.add(wish);
+			}
+		}catch(SQLException sqle) {
+			System.err.println(sqle.getMessage());
+		}
+		return wishes;
 	}
 }

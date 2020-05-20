@@ -62,13 +62,13 @@
                   <div class="form-group col-sm-3">
                   <label>Date:</label>
                   <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="far fa-calendar-alt"></i>
-                      </span>
+                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" id="date" name = "date"/>
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
-                    <input type="datetime-local" class="form-control float-right" id="date" name = "date"  min='2020-01-01' required>
-                  </div>
+                </div>
+            </div>
                   <!-- /.input group -->
                 </div>
                  <div class="form-group">

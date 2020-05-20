@@ -44,7 +44,6 @@ public class WishlistEditServlet extends HttpServlet {
 		int statusID = Integer.parseInt(request.getParameter("statusID"));
 		int wishID = Integer.parseInt(request.getParameter("wishID"));
 		double amount = Double.parseDouble(request.getParameter("amount"));	
-	
 		String comment = request.getParameter("comment");
 		
 		HttpSession session = request.getSession(false);
@@ -56,15 +55,11 @@ public class WishlistEditServlet extends HttpServlet {
 		}
 		try {
 		//java.util.Date formatted = new SimpleDateFormat("yyyy-MM-dyyyy").parse(date);  
-		java.util.Date date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").parse(request.getParameter("date"));
+		java.util.Date date = new SimpleDateFormat("MM/dd/yyyy hh:mm a").parse(request.getParameter("date"));
 		String formatted = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
 		Wishlist wish = new Wishlist(user.getUserID(), categoryID, incomeSourceID, 1, amount, formatted, comment);
 		WishlistOperations wishOps = new WishlistOperations();
 		wishOps.editWishlist(connection, categoryID, statusID, amount, formatted, comment, wishID);
-		
-//			ArrayList<Wishlist> wishlist = wishOps.getFullWishlist(connection, user.getUserID());
-//			request.setAttribute("wishlist", wishlist);
-//			request.getRequestDispatcher("retrievewishlist.action").forward(request, response);
 		response.sendRedirect("retrievewishlist.action");
 		}catch(Exception e) {
 			System.err.println(e.getMessage());

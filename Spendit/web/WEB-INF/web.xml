@@ -5,6 +5,18 @@
   
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <error-page>
+  <error-code>500</error-code>
+  	<location>/500.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>400</error-code>
+  	<location>/400.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/404.jsp</location>
+  </error-page>
  <context-param>
   	<param-name>JDBCUrl</param-name>
   	<param-value>jdbc:mysql://localhost:3306/spenditdb</param-value>
