@@ -24,7 +24,7 @@ body {
 
 p.login {
   font-weight: bold;
-  font-size: 35px;
+  font-size: 20px;
 }
 
 p.error-msg {
@@ -165,8 +165,8 @@ h3.title {
 
         <div class="login100-more" style="background-image: url(resources/images/fruits.png);">
           <div class="login-main-text">
-          <h3 class="login">Always Hungry?</h3>
-            <p class="login">No worries! SpendIt will keep track of your food spending habits.</p>
+          <h3 class="login">Always Spending?</h3>
+            <p class="login">No worries! SpendIt will assist you to  manage your spending habits.</p>
           </div>
         </div>
       </div>
