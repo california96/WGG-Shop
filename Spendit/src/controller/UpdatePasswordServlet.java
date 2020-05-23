@@ -44,18 +44,21 @@ public class UpdatePasswordServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession(false);
 		User user = (User)session.getAttribute("user");
-		UserOperations uOps = new UserOperations();
+		//UserOperations uOps = new UserOperations();
 		AccountEditOperations aeOps = new AccountEditOperations();
 		Connection connection = DBConnection.getConnection(getServletContext());
 		
 		if(aeOps.authenticate(connection, user.getUserName(), currentPass)) {
 			aeOps.updatePassword(connection, user.getUserName(), newPass, currentPass);
-			
+			PrintWriter out = response.getWriter();
+			out.print("<script>alert('Password update successful!')</script>");
+
 			response.sendRedirect("accountsettings.jsp");
+			out.close();
 		}
 		else {
 			PrintWriter out = response.getWriter();
-			out.print("<script>alert('Password is incorrect!')");
+			out.print("<script>alert('The password you entered is incorrect!')</script>");
 			response.sendRedirect("accountsettings.jsp");
 		}
 		
