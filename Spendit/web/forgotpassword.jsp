@@ -224,16 +224,10 @@ a.login:hover {
 		 url: "processpassword.action",
 		 data: $(this).serialize(),
 		 success: function(data){
-			// alert(JSON.stringify(data.msg));
 			$("#errormsg").empty();
 			 if(data.msg === "success"){
-				 // window.location.href = "index.jsp";
-				 //$('#modal-default').dialog('open');
-				// $("#modal-default").show();
-				 
-				// $('#modal-default').modal();
-				// $('.modal').modal('show');
-				window.location.href = "index.jsp";
+			
+				window.location.href = "success.jsp";
 			 }else{
 				 $("#errormsg").empty();
 				 $("#errormsg").append("<p style='color:red'>This email is not in our records. Would you like to register?</p>");
