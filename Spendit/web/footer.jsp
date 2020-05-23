@@ -28,10 +28,10 @@
 <script src="adminlte/plugins/jquery/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 <script src = "adminlte/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<script>
-jQuery('#date').datetimepicker();
-</script>
 
+<script type="text/javascript">
+  jQuery('#date').datetimepicker();
+</script>
 <!-- for dropdown -->
 <script src = "dropdownresources/jquery.dd.min.js"></script>
 <!-- <script>
@@ -91,6 +91,7 @@ $('#imagechoices').ddslick({
 <script src="adminlte/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
 <!-- Summernote -->
 <!--<script src="adminlte/plugins/summernote/summernote-bs4.min.js"></script>-->
 <!-- overlayScrollbars -->
@@ -128,6 +129,25 @@ $(document).ready(function(){
  
 });
 </script> -->
+<script>
+$("#password-form").submit(function(e){
+	 $.ajax({
+		 type: "POST",
+		 url: "updatepassword.action",
+		 data: $(this).serialize(),
+		 success: function(data){
+			// alert(JSON.stringify(data.msg));
+			 if(data.msg === "successful"){
+				 alert("Credentials updated!");
+				 window.location.href = "accountsettings.jsp";
+			 }else{
+				 alert("The password you entered is incorrect. Please try again!");
+				 window.location.href = "accountsettings.jsp";
+			 }
+		 }
+	 })
+});
+</script>
 <script>
 function preventNumbers(e) {
     var keyCode = (e.keyCode ? e.keyCode : e.which);
@@ -319,7 +339,7 @@ $(document).ready(function() {
       success: function(data) {
  
           $("#wishlist-total").append('<h3 style="font-size: larger;">Php ' + data['wishtotal'] + '</h3>');
-          $("#wishlist-total").append('<p>Wishlist Budget</p>');
+          $("#wishlist-total").append('<p>Wishlist</p>');
 
 			
          

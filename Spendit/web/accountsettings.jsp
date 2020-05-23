@@ -103,6 +103,7 @@
           		<form action = "updatepassword.action" method = "post" id="password-form" onsubmit="return validate()"> <!-- This should lead to Password Change Servlet  -->
           			<div class = "form-group">
           			<label for = "currentpass">Current Password</label>
+          			
           			<input type = "password" name = "currentpass" class = "form-control" required>
           			</div>
           			<div class = "form-group">
@@ -136,5 +137,6 @@
         }
         return true;
     }
+    
 </script> 
 <%@include file = "footer.jsp"%>

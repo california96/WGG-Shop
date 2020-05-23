@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import org.apache.commons.lang3.StringUtils;
+
+import com.google.gson.Gson;
 
 import model.User;
 import utility.DBConnection;
@@ -47,21 +50,30 @@ public class UpdatePasswordServlet extends HttpServlet {
 		//UserOperations uOps = new UserOperations();
 		AccountEditOperations aeOps = new AccountEditOperations();
 		Connection connection = DBConnection.getConnection(getServletContext());
-		
+		Gson gson = new Gson();
+		HashMap<Object, Object> message = new HashMap<>();
+		String json;
+
+
 		if(aeOps.authenticate(connection, user.getUserName(), currentPass)) {
 			aeOps.updatePassword(connection, user.getUserName(), newPass, currentPass);
-			PrintWriter out = response.getWriter();
-			out.print("<script>alert('Password update successful!')</script>");
-
-			response.sendRedirect("accountsettings.jsp");
-			out.close();
+			message.put("msg", "successful");
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			json = gson.toJson(message);
+			response.getWriter().write(json);
+		//	response.sendRedirect("accountsettings.jsp");
+			
 		}
 		else {
-			PrintWriter out = response.getWriter();
-			out.print("<script>alert('The password you entered is incorrect!')</script>");
-			response.sendRedirect("accountsettings.jsp");
+			message.put("msg", "incorrect");
+	
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			json = gson.toJson(message);
+			response.getWriter().write(json);
+		//	response.sendRedirect("accountsettings.jsp");
 		}
-		
 	
 	}
 
