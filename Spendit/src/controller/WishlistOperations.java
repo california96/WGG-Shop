@@ -124,7 +124,10 @@ public class WishlistOperations {
 	}
 	public ArrayList<Map<String, String>> getWishlistProgress(Connection connection, int userID){
 		ArrayList<Map<String, String>> wishes = new ArrayList<Map<String,String>>();
-		String sql = "SELECT wishID,comment, amount, (SELECT SUM(incomes.amount) FROM incomes INNER JOIN wishlist ON incomes.categoryID = wishlist.incomeSourceID WHERE wishlist.userID = ? AND wishlist.statusID != 4) as 'partial',((SELECT SUM(incomes.amount) FROM incomes INNER JOIN wishlist ON incomes.categoryID = wishlist.incomeSourceID WHERE wishlist.userID = ? AND wishlist.statusID != 4)/amount ) as 'percentage', (SELECT SUM(amount) \n" + 
+		String sql = "SELECT wishID,comment, amount, (SELECT SUM(incomes.amount) FROM incomes INNER JOIN wishlist ON incomes.categoryID = wishlist.incomeSourceID WHERE wishlist.userID = ? AND wishlist.statusID != 4) as 'partial',\n" + 
+				"IFNULL(((SELECT SUM(incomes.amount) FROM incomes INNER JOIN wishlist ON incomes.categoryID = wishlist.incomeSourceID WHERE wishlist.userID = ? AND wishlist.statusID != 4)/amount ) \n" + 
+				",0) as 'percentage',\n" + 
+				"(SELECT SUM(amount) \n" + 
 				"FROM wishlist\n" + 
 				"WHERE userID = ? and statusID != 4) as 'total'\n" + 
 				"FROM wishlist\n" + 
