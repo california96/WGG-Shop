@@ -76,7 +76,7 @@
                 </div>
                  <div class="form-group">
                     <label>Comment</label>
-                     <textarea name = "comment" id = "comment" class="form-control" rows="3">${expense.comment }</textarea>
+                     <textarea name = "comment" id = "comment" class="form-control" rows="3" required>${expense.comment }</textarea>
                  </div>
                 </div>
                 <!-- /.card-body -->

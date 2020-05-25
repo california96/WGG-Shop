@@ -56,7 +56,7 @@
                  
                  <div class="form-group">
                     <label>Description</label>
-                     <textarea name = "description" id = "description" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                     <textarea name = "description" id = "description" class="form-control" rows="3" placeholder="Enter ..." required></textarea>
                  </div>
                   <div class="form-group">
                     <label>Image</label>

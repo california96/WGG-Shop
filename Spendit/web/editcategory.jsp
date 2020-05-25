@@ -68,7 +68,7 @@
                  
                  <div class="form-group">
                     <label>Description</label>
-                     <textarea name = "description" id = "description" class="form-control" rows="3">${category.description }</textarea>
+                     <textarea name = "description" id = "description" class="form-control" rows="3" required>${category.description }</textarea>
                  </div>
                   <div class="form-group">
                     <label>Image</label>

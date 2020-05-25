@@ -95,7 +95,7 @@
                   </div>
                  <div class="form-group">
                     <label>Comment</label>
-                     <textarea name = "comment" id = "description" class="form-control" rows="3" placeholder="Enter ...">${wish.comment }</textarea>
+                     <textarea name = "comment" id = "description" class="form-control" rows="3" placeholder="Enter ..." required>${wish.comment }</textarea>
                  </div>
                 </div>
                 <!-- /.card-body -->

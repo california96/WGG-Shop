@@ -73,7 +73,7 @@
                 </div>
                  <div class="form-group">
                     <label>Comment</label>
-                     <textarea name = "comment" id = "description" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                     <textarea name = "comment" id = "description" class="form-control" rows="3" placeholder="Enter ..." required></textarea>
                  </div>
                 </div>
                 <!-- /.card-body -->
