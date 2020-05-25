@@ -122,5 +122,9 @@
 	 })
  }); 
  </script> -->
+ <script>
+document.title = "Spendit - Category Edit";
+
+</script>
 </div>
 <%@include file = "footer.jsp"%>

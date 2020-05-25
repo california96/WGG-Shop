@@ -97,6 +97,7 @@ a.login:hover {
 <%@include file = "header.jsp" %>
 <body>
 <script>
+document.title = "Spendit - Registration";
 function check() {
 	  if (document.getElementById('password').value ==
 	    document.getElementById('confirm').value) {

@@ -90,4 +90,8 @@
 
 </div>
 </div>
+<script>
+document.title = "Spendit - Expense Edit";
+
+</script>
 <%@include file = "footer.jsp"%>

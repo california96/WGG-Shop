@@ -96,5 +96,8 @@
   <!-- /.control-sidebar -->
 </div>
           <!-- /.card -->
-          
+<script>
+document.title = "Spendit - Expenses";
+
+</script>        
 <%@include file = "footer.jsp"%>

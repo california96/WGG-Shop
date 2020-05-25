@@ -82,5 +82,8 @@
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
-          
+<script>
+document.title = "Spendit - Categories";
+
+</script>
 <%@include file = "footer.jsp"%>

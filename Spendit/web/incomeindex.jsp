@@ -83,5 +83,8 @@
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
-          
+<script>
+document.title = "Spendit - Income";
+
+</script>        
 <%@include file = "footer.jsp"%>

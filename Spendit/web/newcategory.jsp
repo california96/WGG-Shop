@@ -111,6 +111,7 @@
  }); 
  </script> -->
   <script language="javascript">
+  document.title = "Spendit - New Category";
 $(document).ready(function(e) {
 try {
 $("body select").msDropDown();

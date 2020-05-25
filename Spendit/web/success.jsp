@@ -24,4 +24,7 @@
     </div>
 
 </body>
+<script>
+document.title = "Password Request Successful";
+</script>
 </html>

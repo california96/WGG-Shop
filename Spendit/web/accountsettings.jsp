@@ -128,6 +128,7 @@
           	</div>
           </div>
 <script type="text/javascript">
+document.title = "Spendit - Account Settings";
     function validate() {
         var password = document.getElementById("newpass").value;
         var confirmPassword = document.getElementById("confirmnew").value;

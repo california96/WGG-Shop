@@ -109,4 +109,8 @@
 
 </div>
 </div>
+<script>
+document.title = "Spendit - Wish Edit";
+
+</script>
 <%@include file = "footer.jsp"%>

@@ -91,5 +91,7 @@
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
-          
+<script>
+document.title = "Spendit - Wishlist";
+</script>        
 <%@include file = "footer.jsp"%>

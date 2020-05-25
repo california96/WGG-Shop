@@ -177,6 +177,7 @@ h3.title {
 <!-- jQuery UI 1.11.4 -->
 <script src="adminlte/plugins/jquery-ui/jquery-ui.min.js"></script>
 <script>
+document.title = "Spendit - Login";
  $("#login-form").submit(function(e){
 	 e.preventDefault();
 	 
