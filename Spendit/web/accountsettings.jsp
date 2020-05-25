@@ -45,9 +45,7 @@
       <div class="row">
         <div class="container-fluid">
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Account Settings</h3>
-            </div>
+            
             <!-- /.card-header -->
           </div>
           <div class = "card">

@@ -163,10 +163,10 @@ h3.title {
           </div>
         </form>
 
-        <div class="login100-more" style="background-image: url(resources/images/fruits.png);">
+          <div class="login100-more" style="background-image: url(resources/images/fruits.png);">
           <div class="login-main-text">
-          <h3 class="login">Always Hungry?</h3>
-            <p class="login">No worries! SpendIt will keep track of your food spending habits.</p>
+          <h3 class="login">Curious on where you spend your money?</h3>
+            <p class="login" style="font-size: 20px;">No worries! SpendIt will keep track of your spending habits.</p>
           </div>
         </div>
       </div>

@@ -186,7 +186,7 @@ function check() {
         <div class="login100-more" style="background-image: url(resources/images/register-write.jpg);">
           <div class="login-main-text">
           <h3 class="login">Register Now!</h3>
-            <p class="login">LOL</p>
+            <p class="login" style="font-size:24px;">Ready for a Carefree Spendit-ing experiece</p>
           </div>
         </div>
       </div>
