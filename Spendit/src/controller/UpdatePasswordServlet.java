@@ -57,13 +57,15 @@ public class UpdatePasswordServlet extends HttpServlet {
 
 		if(aeOps.authenticate(connection, user.getUserName(), currentPass)) {
 			aeOps.updatePassword(connection, user.getUserName(), newPass, currentPass);
-			message.put("msg", "successful");
-			response.setContentType("application/json");
-			response.setCharacterEncoding("UTF-8");
-			json = gson.toJson(message);
-			response.getWriter().write(json);
+			//message.put("msg", "successful");
+			//response.setContentType("application/json");
+			//response.setCharacterEncoding("UTF-8");
+			//json = gson.toJson(message);
+		//	response.getWriter().write(json);
 		//	response.sendRedirect("accountsettings.jsp");
-			
+			PrintWriter out = response.getWriter();
+			out.print("<script>alert('Password updated!');"
+					+ "window.location = 'accountsettings.jsp';</script>");
 		}
 		else {
 			message.put("msg", "incorrect");

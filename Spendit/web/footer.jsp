@@ -137,12 +137,13 @@ $("#password-form").submit(function(e){
 		 data: $(this).serialize(),
 		 success: function(data){
 			// alert(JSON.stringify(data.msg));
-			 if(data.msg === "successful"){
-				 alert("Credentials updated!");
-				 window.location.href = "accountsettings.jsp";
-			 }else{
+			 if(data.msg === "incorrect"){
+				// alert("Credentials updated!");
+				// window.location.href = "accountsettings.jsp";
 				 alert("The password you entered is incorrect. Please try again!");
 				 window.location.href = "accountsettings.jsp";
+			 }else{
+				 
 			 }
 		 }
 	 })
