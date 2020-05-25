@@ -124,14 +124,14 @@ public class WishlistOperations {
 	}
 	public ArrayList<Map<String, String>> getWishlistProgress(Connection connection, int userID){
 		ArrayList<Map<String, String>> wishes = new ArrayList<Map<String,String>>();
-		String sql = "SELECT wishID,comment, amount, (SELECT SUM(incomes.amount) FROM incomes INNER JOIN wishlist ON incomes.categoryID = wishlist.incomeSourceID WHERE wishlist.userID = ? AND wishlist.statusID != 4) as 'partial',\n" + 
-				"IFNULL(((SELECT SUM(incomes.amount) FROM incomes INNER JOIN wishlist ON incomes.categoryID = wishlist.incomeSourceID WHERE wishlist.userID = ? AND wishlist.statusID != 4)/amount ) \n" + 
-				",0) as 'percentage',\n" + 
-				"(SELECT SUM(amount) \n" + 
-				"FROM wishlist\n" + 
-				"WHERE userID = ? and statusID != 4) as 'total'\n" + 
-				"FROM wishlist\n" + 
-				"WHERE userID = ? and statusID != 4";
+		String sql = "SELECT wishID,comment, amount, IFNULL((SELECT SUM(incomes.amount) FROM incomes INNER JOIN wishlist ON incomes.categoryID = wishlist.incomeSourceID WHERE wishlist.userID = ? AND wishlist.statusID != 4),0.0) as 'partial',\n" + 
+				"				IFNULL(((SELECT SUM(incomes.amount) FROM incomes INNER JOIN wishlist ON incomes.categoryID = wishlist.incomeSourceID WHERE wishlist.userID = ? AND wishlist.statusID != 4)/amount ) \n" + 
+				"				,0) as 'percentage',\n" + 
+				"				(SELECT SUM(amount) \n" + 
+				"				FROM wishlist\n" + 
+				"				WHERE userID = ? and statusID != 4) as 'total'\n" + 
+				"				FROM wishlist\n" + 
+				"				WHERE userID = ? and statusID != 4";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, userID);

@@ -244,4 +244,7 @@
           </section>
           <!-- right col -->
         </div>
+<script>
+document.title = "Spendit - Dashboard";
+</script>
 <%@include file = "footer.jsp" %>
