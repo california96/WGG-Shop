@@ -1,3 +1,3 @@
-# Spendit
+# WGG Shop
 
-Spendit is a personal expense tracking web application designed for the users to log their income, their expenses as well as monitor their spending habits and wishlists.
+WGG Shop is an ecommerce web application designed to apply and practice all design patterns learned in the Design Patterns course.
