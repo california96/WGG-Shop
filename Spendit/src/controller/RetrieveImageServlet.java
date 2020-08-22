@@ -75,7 +75,7 @@ public class RetrieveImageServlet extends HttpServlet {
 					}
 				}
 			}else {
-				response.sendRedirect("404error.jsp");
+				//response.sendRedirect("404error.jsp");
 			}
 		}
 	}
