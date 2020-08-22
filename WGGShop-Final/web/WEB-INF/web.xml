@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>WGGShop-Final</display-name>
+  <welcome-file-list>
+   	 
+    <welcome-file>index</welcome-file>
+  </welcome-file-list>
+  <error-page>
+  <error-code>500</error-code>
+  	<location>/500.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>403</error-code>
+  	<location>/403.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/404.jsp</location>
+  </error-page>
+  <context-param>
+  	<param-name>JDBCUrl</param-name>
+  	<param-value>jdbc:mysql://localhost:3306/wggdb</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>JDBCUser</param-name>
+  	<param-value>root</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>JDBCPass</param-name>
+  	<param-value>password</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>productStorage</param-name>
+  	<param-value>/Users/bnovicio96/Desktop/productstorage/</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>shippingFee</param-name>
+  	<param-value>50.00</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>adminUser</param-name>
+  	<param-value>admin</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>adminPass</param-name>
+  	<param-value>$2a$10$Y8CETUiIkY2h538QplO44eLmrM.TN8Ypga1eBWhVduuibEsyV6PSO</param-value>
+  </context-param>
+</web-app>
