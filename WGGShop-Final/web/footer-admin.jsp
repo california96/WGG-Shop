@@ -22,12 +22,12 @@
 </div>
 <!-- ./wrapper -->
 <!-- jQuery -->
-<link rel = "stylesheet" type = "text/css" href = "adminlte/plugins/datetimepicker/bootstrap-datetimepicker.css">
-<script src="adminlte/plugins/moment/moment.min.js"></script>
+<link rel = "stylesheet" type = "text/css" href = "node_modules/admin-lte/plugins/datetimepicker/bootstrap-datetimepicker.css">
+<script src="node_modules/admin-lte/plugins/moment/moment.min.js"></script>
 
-<script src="adminlte/plugins/jquery/jquery.min.js"></script>
+<script src="node_modules/admin-lte/plugins/jquery/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-<script src = "adminlte/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src = "node_modules/admin-lte/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
 <script type="text/javascript">
   jQuery('#date').datetimepicker();
@@ -64,44 +64,44 @@ $('#imagechoices').ddslick({
     }); 
 </script>
 <!-- jQuery UI 1.11.4 -->
-<script src="adminlte/plugins/jquery-ui/jquery-ui.min.js">
+<script src="node_modules/admin-lte/plugins/jquery-ui/jquery-ui.min.js">
 </script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
-<script src="adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="node_modules/admin-lte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="node_modules/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="node_modules/admin-lte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="node_modules/admin-lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- ChartJS -->
-<!--<script src="adminlte/plugins/chart.js/Chart.min.js"></script>-->
+<!--<script src="node_modules/admin-lte/plugins/chart.js/Chart.min.js"></script>-->
 <!-- Sparkline -->
-<!--<script src="adminlte/plugins/sparklines/sparkline.js"></script>-->
+<!--<script src="node_modules/admin-lte/plugins/sparklines/sparkline.js"></script>-->
 <!-- JQVMap -->
-<script src="adminlte/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="node_modules/admin-lte/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="node_modules/admin-lte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
-<script src="adminlte/plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="node_modules/admin-lte/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
 
-<script src="adminlte/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="node_modules/admin-lte/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 
 <!-- Summernote -->
-<!--<script src="adminlte/plugins/summernote/summernote-bs4.min.js"></script>-->
+<!--<script src="node_modules/admin-lte/plugins/summernote/summernote-bs4.min.js"></script>-->
 <!-- overlayScrollbars -->
-<script src="adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="adminlte/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="adminlte/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="adminlte/dist/js/demo.js"></script>
+<script src="node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- node_modules/admin-lte App -->
+<script src="node_modules/admin-lte/dist/js/node_modules/admin-lte.js"></script>
+<!-- node_modules/admin-lte dashboard demo (This is only for demo purposes) -->
+<script src="node_modules/admin-lte/dist/js/pages/dashboard.js"></script>
+<!-- node_modules/admin-lte for demo purposes -->
+<script src="node_modules/admin-lte/dist/js/demo.js"></script>
 <!-- <script>
 $(document).ready(function(){
 
